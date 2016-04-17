@@ -1,0 +1,49 @@
+I"c(function() {
+  $(function() {
+    return $(document).on('keydown', function(event) {
+      var active, target;
+      active = $(document.activeElement);
+      if (active.is('.group-dropdown-search, .selector-link')) {
+        switch (event.which) {
+          case 40:
+            target = active.parent().next('.group-item:visible').find('.selector-link');
+            if (target.length === 0) {
+              target = $('#group-dropdown-items').find('.group-item:visible').first().find('.selector-link');
+            }
+            break;
+          case 38:
+            target = active.parent().prev('.group-item:visible').find('.selector-link');
+            if (target.length === 0) {
+              target = $('#group-dropdown-items').find('.group-item:visible').last().find('.selector-link');
+            }
+        }
+        if (target != null) {
+          target.focus();
+          event.preventDefault();
+        }
+      }
+      if (!active.is('input, textarea, select') || event.which === 27) {
+        switch (event.which) {
+          case 71:
+            $('#groups>a').click();
+            $('#groups').find('.group-dropdown-search').focus();
+            return event.preventDefault();
+          case 27:
+            if ($('#groups').hasClass('open')) {
+              return $('#groups>a').click();
+            }
+            break;
+          case 78:
+            return $('#notifications-container>a').click();
+          case 83:
+            $('#search_form_query').focus();
+            return event.preventDefault();
+          case 85:
+            return $("#user>a").click();
+        }
+      }
+    });
+  });
+
+}).call(this);
+:ET

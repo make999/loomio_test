@@ -1,0 +1,102 @@
+I"ç(function() {
+  $(function() {
+    var iframe_upload_redirect_url, toggle_post_comment_btn, upload_started, upload_stopped;
+    toggle_post_comment_btn = function() {
+      var val;
+      val = $('#fileupload').data('uploads-in-progress');
+      val || (val = 0);
+      if (val < 1) {
+        return $("#post-new-comment").removeAttr('disabled');
+      } else {
+        return $("#post-new-comment").attr('disabled', 'disabled');
+      }
+    };
+    upload_started = function() {
+      var val;
+      val = $('#fileupload').data('uploads-in-progress');
+      val || (val = 0);
+      val += 1;
+      $('#fileupload').data('uploads-in-progress', val);
+      return toggle_post_comment_btn();
+    };
+    upload_stopped = function() {
+      var val;
+      val = $('#fileupload').data('uploads-in-progress');
+      val -= 1;
+      $('#fileupload').data('uploads-in-progress', val);
+      return toggle_post_comment_btn();
+    };
+    iframe_upload_redirect_url = function() {
+      return $('#fileupload').data('redirect-url') + "/?%s";
+    };
+    $('.comment-toolbar').on('click', '#add-attachment-icon', function() {
+      return $('input:file').trigger('click');
+    });
+    $('#attachment-container').on('click', '.attachment-success .remove-attachment', function() {
+      var id;
+      id = $(this).parent().data('attachment-id');
+      return $('#attachment-container [data-attachment-id="' + id + '"]').remove();
+    });
+    return $('#fileupload').fileupload({
+      add: function(e, data) {
+        var file, jqXHR, megabytes, types;
+        types = /(\.|\/)(exe)$/i;
+        file = data.files[0];
+        megabytes = file.size / 1024 / 1024;
+        if (megabytes > 100) {
+          return alert("The file is too big. It must be less than 100 MB.");
+        } else if (types.test(file.type) || types.test(file.name)) {
+          return alert(file.name + " is an .exe file, which is not allowed");
+        } else {
+          upload_started();
+          data.context = $(tmpl("template-upload-in-progress", file));
+          $('#attachment-container').append(data.context);
+          $('#fileupload').data('filesize', data.files[0].size);
+          $('#fileupload').data('filename', data.files[0].name);
+          data.form.find('#content-type').val(file.type);
+          jqXHR = data.submit();
+          return data.context.on('click', '.cancel-upload', function(e) {
+            jqXHR.abort();
+            data.context.remove();
+            return upload_stopped();
+          });
+        }
+      },
+      progress: function(e, data) {
+        var progress;
+        if (data.context) {
+          progress = parseInt(data.loaded / data.total * 100, 10);
+          return data.context.find('.progress-bar').css('width', progress + '%');
+        }
+      },
+      done: function(e, data) {
+        var content, domain, file, path, to;
+        file = data.files[0];
+        domain = $('#fileupload').attr('action');
+        path = $('#fileupload input[name=key]').val().replace('${filename}', file.name);
+        file.location = domain + path;
+        to = $('#fileupload').data('post');
+        content = {};
+        content[$('#fileupload').data('as')] = file.location;
+        content['attachment[filesize]'] = file.size;
+        content['attachment[filename]'] = file.name;
+        return $.post(to, content).done(function(response) {
+          var attachment_uploaded_dom, comment_input_field;
+          file.id = response['attachment_id'];
+          comment_input_field = $(tmpl("template-upload--comment-input", file));
+          $('#attachment-container').append(comment_input_field);
+          attachment_uploaded_dom = $(tmpl("template-upload--attached", file));
+          data.context.replaceWith(attachment_uploaded_dom);
+          return upload_stopped();
+        });
+      },
+      fail: function(e, data) {
+        if (data['textStatus'] !== 'abort') {
+          return alert(data.files[0].name + " failed to upload.");
+        }
+      }
+    });
+  });
+
+}).call(this);
+:ET

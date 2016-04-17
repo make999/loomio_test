@@ -1,0 +1,27 @@
+I"(function() {
+  var pluralize_characters;
+
+  window.Application || (window.Application = {});
+
+  $(function() {
+    return $(".validate-length").on('keypress', function() {
+      var remaining;
+      remaining = 250 - $(this).val().length;
+      if (remaining >= 0) {
+        return $(".character-counter").text(pluralize_characters(remaining) + " left");
+      } else {
+        return $(".character-counter").text(pluralize_characters(-remaining) + " too long");
+      }
+    });
+  });
+
+  pluralize_characters = function(num) {
+    if (num === 1) {
+      return num + " character";
+    } else {
+      return num + " characters";
+    }
+  };
+
+}).call(this);
+:ET

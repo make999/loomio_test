@@ -1,0 +1,101 @@
+I"‘
+(function() {
+  var fade_time, remove_group_if_empty, show_inbox_empty_msg_if_empty;
+
+  $(function() {
+    $(".mark-as-read-btn").tooltip({
+      placement: "top",
+      title: 'Mark as read',
+      delay: 500
+    });
+    $(".unread-comments-count").tooltip({
+      placement: "right",
+      delay: 500
+    });
+    return $(".unread-votes-count").tooltip({
+      placement: "right",
+      delay: 500
+    });
+  });
+
+  fade_time = 150;
+
+  remove_group_if_empty = function(group_div) {
+    if (group_div.find('li').length === 0) {
+      return group_div.fadeOut(fade_time, function() {
+        return $(this).remove();
+      });
+    }
+  };
+
+  show_inbox_empty_msg_if_empty = function() {
+    var inbox_container;
+    inbox_container = $('.inbox-container');
+    if (inbox_container.find('.inbox-group').length === 0) {
+      return $('.inbox-empty-msg').show();
+    }
+  };
+
+  $(function() {
+    var load_inbox_count, step;
+    step = 0;
+    load_inbox_count = function() {
+      if (step < 5) {
+        step += 1;
+      }
+      return $.ajax({
+        url: '/inbox/size',
+        success: function(count) {
+          return $('#inbox-count').text(count);
+        },
+        complete: function() {
+          return setTimeout(load_inbox_count, step * 60 * 1000);
+        }
+      });
+    };
+    if ($('#inbox-count').length > 0) {
+      return load_inbox_count();
+    }
+  });
+
+  $(function() {
+    $('.motion-sparkline').sparkline('html', {
+      disableTooltips: true,
+      type: 'pie',
+      height: '26px',
+      width: '26px',
+      sliceColors: ["#90D490", "#F0BB67", "#D49090", "#dd0000", '#ccc']
+    });
+    if ($('body.inbox').length > 0) {
+      $('.ui-sortable').sortable();
+      $('.mark-all-as-read-btn').on('click', function(e) {
+        var group_div, items;
+        group_div = $(e.target).parents('.inbox-group');
+        items = group_div.find('li');
+        return items.fadeOut(fade_time, function() {
+          $(this).remove();
+          remove_group_if_empty(group_div);
+          return show_inbox_empty_msg_if_empty;
+        });
+      });
+      $('.mark-as-read-btn, .unfollow-btn').on('click', function(e) {
+        var group_div, list, row;
+        group_div = $(e.target).parents('.inbox-group');
+        list = $(e.target).parents('ul');
+        row = $(e.target).parents('li');
+        return row.fadeOut(fade_time, function() {
+          $(this).remove();
+          remove_group_if_empty(group_div);
+          return show_inbox_empty_msg_if_empty;
+        });
+      });
+      return $('.js-format-as-timeago').each(function() {
+        var time;
+        time = moment($(this).data('time'));
+        return $(this).text(time.fromNow(true));
+      });
+    }
+  });
+
+}).call(this);
+:ET

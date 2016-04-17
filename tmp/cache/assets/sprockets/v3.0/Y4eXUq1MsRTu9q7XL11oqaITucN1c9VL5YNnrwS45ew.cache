@@ -1,0 +1,17 @@
+I"ò(function() {
+  $(function() {
+    return $(".topbar-wrapper").dropdown();
+  });
+
+  $(function() {
+    return $(".alert-message").alert();
+  });
+
+  $(function() {
+    return $(".modal").modal({
+      show: false
+    });
+  });
+
+}).call(this);
+:ET

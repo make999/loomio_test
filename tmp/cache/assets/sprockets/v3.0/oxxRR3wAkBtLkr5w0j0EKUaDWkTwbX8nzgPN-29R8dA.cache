@@ -1,0 +1,16 @@
+I"!(function() {
+  $(function() {
+    var time_zone, tz;
+    tz = jstz.determine();
+    if (typeof tz === 'undefined') {
+      time_zone = 'undefined';
+    } else {
+      time_zone = tz.name();
+    }
+    return $.cookie('time_zone', time_zone, {
+      path: "/"
+    });
+  });
+
+}).call(this);
+:ET

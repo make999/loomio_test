@@ -1,0 +1,57 @@
+I"\(function() {
+  var getParameterByName, locale;
+
+  window.Application || (window.Application = {});
+
+  $(function() {
+    return $('.intercom-proxy').on('click', function(e) {
+      e.preventDefault();
+      return $('#Intercom').trigger('click');
+    });
+  });
+
+  $(function() {
+    return $(".dismiss-help-notice").click(function(event) {
+      $.post($(this).attr("href"));
+      $('.help-notice').modal('hide');
+      event.preventDefault();
+      return event.stopPropagation();
+    });
+  });
+
+  $(function() {
+    if ($("body.groups.show").length > 0 || $("body.dashboard.show").length > 0) {
+      if ($("#discussions-with-motions").children().html() !== "") {
+        return $(".discussion-with-motion-divider").removeClass('hidden');
+      }
+    }
+  });
+
+  $.placeholder.shim();
+
+  $(function() {
+    return $('.js-warn-before-navigating-away').safetynet();
+  });
+
+  getParameterByName = function(name) {
+    var regex, results;
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    regex = new RegExp("[\\?&]" + name + "=([^&#]*)");
+    results = regex.exec(location.search);
+    if (results === null) {
+      return "";
+    } else {
+      return decodeURIComponent(results[1].replace(/\+/g, " "));
+    }
+  };
+
+  if (locale = getParameterByName('locale')) {
+    $.ajaxSetup({
+      data: {
+        locale: locale
+      }
+    });
+  }
+
+}).call(this);
+:ET

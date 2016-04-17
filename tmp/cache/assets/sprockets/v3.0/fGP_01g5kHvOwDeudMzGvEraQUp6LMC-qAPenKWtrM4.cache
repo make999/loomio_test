@@ -1,0 +1,71 @@
+I"r(function() {
+  var getParameterByName, hideMotionOutcome, hideMotionOutcomeForm, showMotionOutcomeForm;
+
+  window.Application || (window.Application = {});
+
+  $(function() {
+    if ($('.motion-outcome').text().length > 0) {
+      hideMotionOutcomeForm();
+    } else {
+      showMotionOutcomeForm();
+    }
+    return $('#edit-outcome').click(function(e) {
+      e.preventDefault();
+      showMotionOutcomeForm();
+      return hideMotionOutcome();
+    });
+  });
+
+  hideMotionOutcomeForm = function() {
+    return $('#outcome-form').addClass('hidden');
+  };
+
+  showMotionOutcomeForm = function() {
+    return $('#outcome-form').removeClass('hidden');
+  };
+
+  hideMotionOutcome = function() {
+    return $('#outcome-display').addClass('hidden');
+  };
+
+  $(function() {
+    if (getParameterByName("focus_outcome_input")) {
+      return $("#outcome-input textarea").focus();
+    }
+  });
+
+  $(function() {
+    return $('.activity-item-actor a, .member-name a').click(function(event) {
+      return event.preventDefault();
+    });
+  });
+
+  $(function() {
+    if ($(".motion").length > 0) {
+      return $(".toggle-yet-to-vote").click(function(event) {
+        if ($("#yet-to-vote").hasClass("hidden")) {
+          $(this).text("[Hide users who have not yet decided]");
+          $("#yet-to-vote").removeClass('hidden');
+        } else {
+          $(".toggle-yet-to-vote").text("[Show users who have not yet decided]");
+          $("#yet-to-vote").addClass('hidden');
+        }
+        return event.preventDefault();
+      });
+    }
+  });
+
+  getParameterByName = function(name) {
+    var regex, results;
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    regex = new RegExp("[\\?&]" + name + "=([^&#]*)");
+    results = regex.exec(location.search);
+    if (results == null) {
+      return "";
+    } else {
+      return decodeURIComponent(results[1].replace(/\+/g, " "));
+    }
+  };
+
+}).call(this);
+:ET

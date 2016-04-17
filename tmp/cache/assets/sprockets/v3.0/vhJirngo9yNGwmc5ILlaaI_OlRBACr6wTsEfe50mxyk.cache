@@ -1,0 +1,14 @@
+I"9(function() {
+  $(function() {
+    if ($('body.searches.show').length > 0) {
+      return $('.motion-sparkline').sparkline('html', {
+        type: 'pie',
+        height: '26px',
+        width: '26px',
+        sliceColors: ["#90D490", "#F0BB67", "#D49090", "#dd0000", '#ccc']
+      });
+    }
+  });
+
+}).call(this);
+:ET

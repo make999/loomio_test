@@ -1,0 +1,2096 @@
+2016-04-05 08:21:22[WARN] user: root
+/api/v1/membership_requests
+N+1 Query detected
+  MembershipRequest => [:group]
+  Add to your finder: :includes => [:group]
+N+1 Query method call stack
+  /root/dockku/loomio/app/mailers/group_mailer.rb:4:in `new_membership_request'
+  /root/dockku/loomio/app/models/events/membership_requested.rb:16:in `notify_users!'
+  /root/dockku/loomio/app/models/events/membership_requested.rb:5:in `publish!'
+  /root/dockku/loomio/app/services/membership_request_service.rb:9:in `create'
+  /root/dockku/loomio/app/controllers/api/restful_controller.rb:11:in `create_action'
+
+/root/dockku/loomio/app/mailers/group_mailer.rb:4:in `new_membership_request'
+/root/dockku/loomio/app/models/events/membership_requested.rb:16:in `notify_users!'
+/root/dockku/loomio/app/models/events/membership_requested.rb:5:in `publish!'
+/root/dockku/loomio/app/services/membership_request_service.rb:9:in `create'
+/root/dockku/loomio/app/controllers/api/restful_controller.rb:11:in `create_action'2016-04-05 08:23:43[WARN] user: root
+/api/v1/groups
+Unused Eager Loading detected
+  Event => [:user]
+  Remove from your finder: :includes => [:user]
+
+2016-04-05 08:33:11[WARN] user: root
+/api/v1/groups
+Unused Eager Loading detected
+  Event => [:user]
+  Remove from your finder: :includes => [:user]
+
+2016-04-05 08:34:07[WARN] user: root
+/api/v1/discussions/dashboard?filter=show_all&from=0&per=50
+N+1 Query detected
+  Group => [:subscription]
+  Add to your finder: :includes => [:subscription]
+N+1 Query method call stack
+  /root/dockku/loomio/app/serializers/group_serializer.rb:90:in `subscription'
+  /root/dockku/loomio/app/serializers/group_serializer.rb:50:in `subscription_kind'
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+  /root/dockku/loomio/app/controllers/api/discussions_controller.rb:15:in `dashboard'
+
+/root/dockku/loomio/app/serializers/group_serializer.rb:90:in `subscription'
+/root/dockku/loomio/app/serializers/group_serializer.rb:50:in `subscription_kind'
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+/root/dockku/loomio/app/controllers/api/discussions_controller.rb:15:in `dashboard'2016-04-05 08:34:07[WARN] user: root
+/api/v1/discussions/dashboard?filter=show_all&from=0&per=50
+N+1 Query detected
+  Motion => [:discussion]
+  Add to your finder: :includes => [:discussion]
+N+1 Query method call stack
+  /root/dockku/loomio/app/models/motion.rb:37:in `group_id'
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+  /root/dockku/loomio/app/controllers/api/discussions_controller.rb:15:in `dashboard'
+
+/root/dockku/loomio/app/models/motion.rb:37:in `group_id'
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+/root/dockku/loomio/app/controllers/api/discussions_controller.rb:15:in `dashboard'2016-04-05 09:54:57[WARN] user: root
+/profile
+N+1 Query detected
+  Membership => [:group]
+  Add to your finder: :includes => [:group]
+N+1 Query method call stack
+  /root/dockku/loomio/app/views/layouts/angular.html.haml:32:in `_app_views_layouts_angular_html_haml___3996313187121660130_47407625113040'
+  /root/dockku/loomio/app/helpers/angular_helper.rb:7:in `boot_angular_ui'
+  /root/dockku/loomio/app/helpers/time_zone_helper.rb:4:in `user_time_zone'
+
+/root/dockku/loomio/app/views/layouts/angular.html.haml:32:in `_app_views_layouts_angular_html_haml___3996313187121660130_47407625113040'
+/root/dockku/loomio/app/helpers/angular_helper.rb:7:in `boot_angular_ui'
+/root/dockku/loomio/app/helpers/time_zone_helper.rb:4:in `user_time_zone'2016-04-05 09:54:57[WARN] user: root
+/profile
+N+1 Query detected
+  Membership => [:user]
+  Add to your finder: :includes => [:user]
+N+1 Query method call stack
+  /root/dockku/loomio/app/views/layouts/angular.html.haml:32:in `_app_views_layouts_angular_html_haml___3996313187121660130_47407625113040'
+  /root/dockku/loomio/app/helpers/angular_helper.rb:7:in `boot_angular_ui'
+  /root/dockku/loomio/app/helpers/time_zone_helper.rb:4:in `user_time_zone'
+
+/root/dockku/loomio/app/views/layouts/angular.html.haml:32:in `_app_views_layouts_angular_html_haml___3996313187121660130_47407625113040'
+/root/dockku/loomio/app/helpers/angular_helper.rb:7:in `boot_angular_ui'
+/root/dockku/loomio/app/helpers/time_zone_helper.rb:4:in `user_time_zone'2016-04-05 09:54:57[WARN] user: root
+/profile
+N+1 Query detected
+  Membership => [:inviter]
+  Add to your finder: :includes => [:inviter]
+N+1 Query method call stack
+  /root/dockku/loomio/app/views/layouts/angular.html.haml:32:in `_app_views_layouts_angular_html_haml___3996313187121660130_47407625113040'
+  /root/dockku/loomio/app/helpers/angular_helper.rb:7:in `boot_angular_ui'
+  /root/dockku/loomio/app/helpers/time_zone_helper.rb:4:in `user_time_zone'
+
+/root/dockku/loomio/app/views/layouts/angular.html.haml:32:in `_app_views_layouts_angular_html_haml___3996313187121660130_47407625113040'
+/root/dockku/loomio/app/helpers/angular_helper.rb:7:in `boot_angular_ui'
+/root/dockku/loomio/app/helpers/time_zone_helper.rb:4:in `user_time_zone'2016-04-05 09:54:58[WARN] user: root
+/api/v1/discussions/inbox?from=0&per=100&since=Tue%20Feb%2023%202016%2000%3A00%3A00%20GMT%2B0800%20(SGT)&timeframe_for=last_activity_at
+N+1 Query detected
+  Group => [:subscription]
+  Add to your finder: :includes => [:subscription]
+N+1 Query method call stack
+  /root/dockku/loomio/app/serializers/group_serializer.rb:90:in `subscription'
+  /root/dockku/loomio/app/serializers/group_serializer.rb:50:in `subscription_kind'
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+  /root/dockku/loomio/app/controllers/api/discussions_controller.rb:21:in `inbox'
+
+/root/dockku/loomio/app/serializers/group_serializer.rb:90:in `subscription'
+/root/dockku/loomio/app/serializers/group_serializer.rb:50:in `subscription_kind'
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+/root/dockku/loomio/app/controllers/api/discussions_controller.rb:21:in `inbox'2016-04-05 09:54:58[WARN] user: root
+/api/v1/discussions/inbox?from=0&per=100&since=Tue%20Feb%2023%202016%2000%3A00%3A00%20GMT%2B0800%20(SGT)&timeframe_for=last_activity_at
+N+1 Query detected
+  Motion => [:discussion]
+  Add to your finder: :includes => [:discussion]
+N+1 Query method call stack
+  /root/dockku/loomio/app/models/motion.rb:37:in `group_id'
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+  /root/dockku/loomio/app/controllers/api/discussions_controller.rb:21:in `inbox'
+
+/root/dockku/loomio/app/models/motion.rb:37:in `group_id'
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+/root/dockku/loomio/app/controllers/api/discussions_controller.rb:21:in `inbox'2016-04-05 09:55:06[WARN] user: root
+/api/v1/discussions/vfuR7530/mark_as_read
+Unused Eager Loading detected
+  Event => [:user]
+  Remove from your finder: :includes => [:user]
+
+2016-04-05 09:55:25[WARN] user: root
+/api/v1/votes
+Unused Eager Loading detected
+  Vote => [:previous_vote]
+  Remove from your finder: :includes => [:previous_vote]
+
+2016-04-05 09:55:25[WARN] user: root
+/api/v1/votes
+Unused Eager Loading detected
+  Event => [:user]
+  Remove from your finder: :includes => [:user]
+
+2016-04-05 09:55:31[WARN] user: root
+/api/v1/events?from=2&per=30&comment_id=undefined&discussion_key=vfuR7530
+Unused Eager Loading detected
+  Vote => [:previous_vote]
+  Remove from your finder: :includes => [:previous_vote]
+
+2016-04-05 09:55:34[WARN] user: root
+/api/v1/discussions/Blr4OcFE/mark_as_read
+Unused Eager Loading detected
+  Event => [:user]
+  Remove from your finder: :includes => [:user]
+
+2016-04-05 09:55:34[WARN] user: root
+/api/v1/discussions/Blr4OcFE/mark_as_read
+Unused Eager Loading detected
+  Event => [:user]
+  Remove from your finder: :includes => [:user]
+
+2016-04-05 09:55:38[WARN] user: root
+/api/v1/votes
+Unused Eager Loading detected
+  Vote => [:previous_vote]
+  Remove from your finder: :includes => [:previous_vote]
+
+2016-04-05 09:55:38[WARN] user: root
+/api/v1/votes
+Unused Eager Loading detected
+  Event => [:user]
+  Remove from your finder: :includes => [:user]
+
+2016-04-05 09:55:48[WARN] user: root
+/api/v1/discussions?from=0&per=25&group_id=r23ZaMTp
+Unused Eager Loading detected
+  Vote => [:previous_vote]
+  Remove from your finder: :includes => [:previous_vote]
+
+2016-04-05 09:55:49[WARN] user: root
+/api/v1/votes/my_votes?group_id=3
+Unused Eager Loading detected
+  Vote => [:previous_vote]
+  Remove from your finder: :includes => [:previous_vote]
+
+2016-04-05 09:56:07[WARN] user: root
+/api/v1/discussions/Blr4OcFE
+Unused Eager Loading detected
+  Vote => [:previous_vote]
+  Remove from your finder: :includes => [:previous_vote]
+
+2016-04-05 09:56:08[WARN] user: root
+/api/v1/votes/my_votes?discussion_id=2
+Unused Eager Loading detected
+  Vote => [:previous_vote]
+  Remove from your finder: :includes => [:previous_vote]
+
+2016-04-05 09:56:08[WARN] user: root
+/api/v1/events?from=1&per=30&comment_id=undefined&discussion_key=Blr4OcFE
+Unused Eager Loading detected
+  Vote => [:previous_vote]
+  Remove from your finder: :includes => [:previous_vote]
+
+2016-04-05 09:56:08[WARN] user: root
+/api/v1/votes?motion_id=1
+Unused Eager Loading detected
+  Vote => [:previous_vote]
+  Remove from your finder: :includes => [:previous_vote]
+
+2016-04-05 09:56:25[WARN] user: root
+/api/v1/events?from=0&per=30&comment_id=undefined&discussion_key=Blr4OcFE
+Unused Eager Loading detected
+  Vote => [:previous_vote]
+  Remove from your finder: :includes => [:previous_vote]
+
+2016-04-05 09:56:25[WARN] user: root
+/api/v1/votes?motion_id=1
+Unused Eager Loading detected
+  Vote => [:previous_vote]
+  Remove from your finder: :includes => [:previous_vote]
+
+2016-04-05 09:57:30[WARN] user: root
+/api/v1/votes?motion_id=1
+Unused Eager Loading detected
+  Vote => [:previous_vote]
+  Remove from your finder: :includes => [:previous_vote]
+
+2016-04-05 09:57:31[WARN] user: root
+/api/v1/events?from=0&per=30&comment_id=undefined&discussion_key=Blr4OcFE
+Unused Eager Loading detected
+  Vote => [:previous_vote]
+  Remove from your finder: :includes => [:previous_vote]
+
+2016-04-05 14:52:26[WARN] user: root
+/profile
+N+1 Query detected
+  Membership => [:group]
+  Add to your finder: :includes => [:group]
+N+1 Query method call stack
+  /root/dockku/loomio/app/views/layouts/angular.html.haml:32:in `_app_views_layouts_angular_html_haml___3501667334832416536_47447500197940'
+  /root/dockku/loomio/app/helpers/angular_helper.rb:7:in `boot_angular_ui'
+  /root/dockku/loomio/app/helpers/time_zone_helper.rb:4:in `user_time_zone'
+
+/root/dockku/loomio/app/views/layouts/angular.html.haml:32:in `_app_views_layouts_angular_html_haml___3501667334832416536_47447500197940'
+/root/dockku/loomio/app/helpers/angular_helper.rb:7:in `boot_angular_ui'
+/root/dockku/loomio/app/helpers/time_zone_helper.rb:4:in `user_time_zone'2016-04-05 14:52:26[WARN] user: root
+/profile
+N+1 Query detected
+  Membership => [:user]
+  Add to your finder: :includes => [:user]
+N+1 Query method call stack
+  /root/dockku/loomio/app/views/layouts/angular.html.haml:32:in `_app_views_layouts_angular_html_haml___3501667334832416536_47447500197940'
+  /root/dockku/loomio/app/helpers/angular_helper.rb:7:in `boot_angular_ui'
+  /root/dockku/loomio/app/helpers/time_zone_helper.rb:4:in `user_time_zone'
+
+/root/dockku/loomio/app/views/layouts/angular.html.haml:32:in `_app_views_layouts_angular_html_haml___3501667334832416536_47447500197940'
+/root/dockku/loomio/app/helpers/angular_helper.rb:7:in `boot_angular_ui'
+/root/dockku/loomio/app/helpers/time_zone_helper.rb:4:in `user_time_zone'2016-04-05 14:52:26[WARN] user: root
+/profile
+N+1 Query detected
+  Membership => [:inviter]
+  Add to your finder: :includes => [:inviter]
+N+1 Query method call stack
+  /root/dockku/loomio/app/views/layouts/angular.html.haml:32:in `_app_views_layouts_angular_html_haml___3501667334832416536_47447500197940'
+  /root/dockku/loomio/app/helpers/angular_helper.rb:7:in `boot_angular_ui'
+  /root/dockku/loomio/app/helpers/time_zone_helper.rb:4:in `user_time_zone'
+
+/root/dockku/loomio/app/views/layouts/angular.html.haml:32:in `_app_views_layouts_angular_html_haml___3501667334832416536_47447500197940'
+/root/dockku/loomio/app/helpers/angular_helper.rb:7:in `boot_angular_ui'
+/root/dockku/loomio/app/helpers/time_zone_helper.rb:4:in `user_time_zone'2016-04-05 14:53:29[WARN] user: root
+/api/v1/discussions?from=0&per=25&group_id=nSWIg5Jw
+Unused Eager Loading detected
+  Vote => [:previous_vote]
+  Remove from your finder: :includes => [:previous_vote]
+
+2016-04-05 14:53:30[WARN] user: root
+/api/v1/votes/my_votes?group_id=4
+Unused Eager Loading detected
+  Vote => [:previous_vote]
+  Remove from your finder: :includes => [:previous_vote]
+
+2016-04-05 15:02:27[WARN] user: root
+/profile
+N+1 Query detected
+  Membership => [:group]
+  Add to your finder: :includes => [:group]
+N+1 Query method call stack
+  /root/dockku/loomio/app/views/layouts/angular.html.haml:32:in `_app_views_layouts_angular_html_haml___3501667334832416536_47447500197940'
+  /root/dockku/loomio/app/helpers/angular_helper.rb:7:in `boot_angular_ui'
+  /root/dockku/loomio/app/helpers/time_zone_helper.rb:4:in `user_time_zone'
+
+/root/dockku/loomio/app/views/layouts/angular.html.haml:32:in `_app_views_layouts_angular_html_haml___3501667334832416536_47447500197940'
+/root/dockku/loomio/app/helpers/angular_helper.rb:7:in `boot_angular_ui'
+/root/dockku/loomio/app/helpers/time_zone_helper.rb:4:in `user_time_zone'2016-04-05 15:02:27[WARN] user: root
+/profile
+N+1 Query detected
+  Membership => [:user]
+  Add to your finder: :includes => [:user]
+N+1 Query method call stack
+  /root/dockku/loomio/app/views/layouts/angular.html.haml:32:in `_app_views_layouts_angular_html_haml___3501667334832416536_47447500197940'
+  /root/dockku/loomio/app/helpers/angular_helper.rb:7:in `boot_angular_ui'
+  /root/dockku/loomio/app/helpers/time_zone_helper.rb:4:in `user_time_zone'
+
+/root/dockku/loomio/app/views/layouts/angular.html.haml:32:in `_app_views_layouts_angular_html_haml___3501667334832416536_47447500197940'
+/root/dockku/loomio/app/helpers/angular_helper.rb:7:in `boot_angular_ui'
+/root/dockku/loomio/app/helpers/time_zone_helper.rb:4:in `user_time_zone'2016-04-05 15:02:27[WARN] user: root
+/profile
+N+1 Query detected
+  Membership => [:inviter]
+  Add to your finder: :includes => [:inviter]
+N+1 Query method call stack
+  /root/dockku/loomio/app/views/layouts/angular.html.haml:32:in `_app_views_layouts_angular_html_haml___3501667334832416536_47447500197940'
+  /root/dockku/loomio/app/helpers/angular_helper.rb:7:in `boot_angular_ui'
+  /root/dockku/loomio/app/helpers/time_zone_helper.rb:4:in `user_time_zone'
+
+/root/dockku/loomio/app/views/layouts/angular.html.haml:32:in `_app_views_layouts_angular_html_haml___3501667334832416536_47447500197940'
+/root/dockku/loomio/app/helpers/angular_helper.rb:7:in `boot_angular_ui'
+/root/dockku/loomio/app/helpers/time_zone_helper.rb:4:in `user_time_zone'2016-04-05 15:02:41[WARN] user: root
+/api/v1/discussions?from=0&per=25&group_id=nSWIg5Jw
+Unused Eager Loading detected
+  Vote => [:previous_vote]
+  Remove from your finder: :includes => [:previous_vote]
+
+2016-04-05 15:02:41[WARN] user: root
+/api/v1/votes/my_votes?group_id=4
+Unused Eager Loading detected
+  Vote => [:previous_vote]
+  Remove from your finder: :includes => [:previous_vote]
+
+2016-04-05 15:12:11[WARN] user: root
+/profile
+N+1 Query detected
+  Membership => [:group]
+  Add to your finder: :includes => [:group]
+N+1 Query method call stack
+  /root/dockku/loomio/app/views/layouts/angular.html.haml:32:in `_app_views_layouts_angular_html_haml__2496267538453918834_47121247813060'
+  /root/dockku/loomio/app/helpers/angular_helper.rb:7:in `boot_angular_ui'
+  /root/dockku/loomio/app/helpers/time_zone_helper.rb:4:in `user_time_zone'
+
+/root/dockku/loomio/app/views/layouts/angular.html.haml:32:in `_app_views_layouts_angular_html_haml__2496267538453918834_47121247813060'
+/root/dockku/loomio/app/helpers/angular_helper.rb:7:in `boot_angular_ui'
+/root/dockku/loomio/app/helpers/time_zone_helper.rb:4:in `user_time_zone'2016-04-05 15:12:11[WARN] user: root
+/profile
+N+1 Query detected
+  Membership => [:user]
+  Add to your finder: :includes => [:user]
+N+1 Query method call stack
+  /root/dockku/loomio/app/views/layouts/angular.html.haml:32:in `_app_views_layouts_angular_html_haml__2496267538453918834_47121247813060'
+  /root/dockku/loomio/app/helpers/angular_helper.rb:7:in `boot_angular_ui'
+  /root/dockku/loomio/app/helpers/time_zone_helper.rb:4:in `user_time_zone'
+
+/root/dockku/loomio/app/views/layouts/angular.html.haml:32:in `_app_views_layouts_angular_html_haml__2496267538453918834_47121247813060'
+/root/dockku/loomio/app/helpers/angular_helper.rb:7:in `boot_angular_ui'
+/root/dockku/loomio/app/helpers/time_zone_helper.rb:4:in `user_time_zone'2016-04-05 15:12:11[WARN] user: root
+/profile
+N+1 Query detected
+  Membership => [:inviter]
+  Add to your finder: :includes => [:inviter]
+N+1 Query method call stack
+  /root/dockku/loomio/app/views/layouts/angular.html.haml:32:in `_app_views_layouts_angular_html_haml__2496267538453918834_47121247813060'
+  /root/dockku/loomio/app/helpers/angular_helper.rb:7:in `boot_angular_ui'
+  /root/dockku/loomio/app/helpers/time_zone_helper.rb:4:in `user_time_zone'
+
+/root/dockku/loomio/app/views/layouts/angular.html.haml:32:in `_app_views_layouts_angular_html_haml__2496267538453918834_47121247813060'
+/root/dockku/loomio/app/helpers/angular_helper.rb:7:in `boot_angular_ui'
+/root/dockku/loomio/app/helpers/time_zone_helper.rb:4:in `user_time_zone'2016-04-05 15:12:20[WARN] user: root
+/api/v1/discussions?from=0&per=25&group_id=r23ZaMTp
+Unused Eager Loading detected
+  Vote => [:previous_vote]
+  Remove from your finder: :includes => [:previous_vote]
+
+2016-04-05 15:12:21[WARN] user: root
+/api/v1/votes/my_votes?group_id=3
+Unused Eager Loading detected
+  Vote => [:previous_vote]
+  Remove from your finder: :includes => [:previous_vote]
+
+2016-04-05 15:12:35[WARN] user: root
+/profile
+N+1 Query detected
+  Membership => [:group]
+  Add to your finder: :includes => [:group]
+N+1 Query method call stack
+  /root/dockku/loomio/app/views/layouts/angular.html.haml:32:in `_app_views_layouts_angular_html_haml__2496267538453918834_47121247813060'
+  /root/dockku/loomio/app/helpers/angular_helper.rb:7:in `boot_angular_ui'
+  /root/dockku/loomio/app/helpers/time_zone_helper.rb:4:in `user_time_zone'
+
+/root/dockku/loomio/app/views/layouts/angular.html.haml:32:in `_app_views_layouts_angular_html_haml__2496267538453918834_47121247813060'
+/root/dockku/loomio/app/helpers/angular_helper.rb:7:in `boot_angular_ui'
+/root/dockku/loomio/app/helpers/time_zone_helper.rb:4:in `user_time_zone'2016-04-05 15:12:35[WARN] user: root
+/profile
+N+1 Query detected
+  Membership => [:user]
+  Add to your finder: :includes => [:user]
+N+1 Query method call stack
+  /root/dockku/loomio/app/views/layouts/angular.html.haml:32:in `_app_views_layouts_angular_html_haml__2496267538453918834_47121247813060'
+  /root/dockku/loomio/app/helpers/angular_helper.rb:7:in `boot_angular_ui'
+  /root/dockku/loomio/app/helpers/time_zone_helper.rb:4:in `user_time_zone'
+
+/root/dockku/loomio/app/views/layouts/angular.html.haml:32:in `_app_views_layouts_angular_html_haml__2496267538453918834_47121247813060'
+/root/dockku/loomio/app/helpers/angular_helper.rb:7:in `boot_angular_ui'
+/root/dockku/loomio/app/helpers/time_zone_helper.rb:4:in `user_time_zone'2016-04-05 15:12:35[WARN] user: root
+/profile
+N+1 Query detected
+  Membership => [:inviter]
+  Add to your finder: :includes => [:inviter]
+N+1 Query method call stack
+  /root/dockku/loomio/app/views/layouts/angular.html.haml:32:in `_app_views_layouts_angular_html_haml__2496267538453918834_47121247813060'
+  /root/dockku/loomio/app/helpers/angular_helper.rb:7:in `boot_angular_ui'
+  /root/dockku/loomio/app/helpers/time_zone_helper.rb:4:in `user_time_zone'
+
+/root/dockku/loomio/app/views/layouts/angular.html.haml:32:in `_app_views_layouts_angular_html_haml__2496267538453918834_47121247813060'
+/root/dockku/loomio/app/helpers/angular_helper.rb:7:in `boot_angular_ui'
+/root/dockku/loomio/app/helpers/time_zone_helper.rb:4:in `user_time_zone'2016-04-05 15:12:53[WARN] user: root
+/api/v1/discussions?from=0&per=25&group_id=nSWIg5Jw
+Unused Eager Loading detected
+  Vote => [:previous_vote]
+  Remove from your finder: :includes => [:previous_vote]
+
+2016-04-05 15:12:53[WARN] user: root
+/api/v1/votes/my_votes?group_id=4
+Unused Eager Loading detected
+  Vote => [:previous_vote]
+  Remove from your finder: :includes => [:previous_vote]
+
+2016-04-16 16:40:35[WARN] user: root
+/api/v1/groups
+Unused Eager Loading detected
+  Event => [:user]
+  Remove from your finder: :includes => [:user]
+
+2016-04-16 16:40:44[WARN] user: root
+/api/v1/discussions/owCRl5sG/mark_as_read
+Unused Eager Loading detected
+  Event => [:user]
+  Remove from your finder: :includes => [:user]
+
+2016-04-16 16:40:47[WARN] user: root
+/api/v1/discussions/owCRl5sG/mark_as_read
+Unused Eager Loading detected
+  Event => [:user]
+  Remove from your finder: :includes => [:user]
+
+2016-04-16 16:41:05[WARN] user: root
+/api/v1/votes
+Unused Eager Loading detected
+  Vote => [:previous_vote]
+  Remove from your finder: :includes => [:previous_vote]
+
+2016-04-16 16:41:05[WARN] user: root
+/api/v1/votes
+Unused Eager Loading detected
+  Event => [:user]
+  Remove from your finder: :includes => [:user]
+
+2016-04-16 16:41:10[WARN] user: root
+/api/v1/discussions?from=0&per=25&group_id=jlCXJvx5
+Unused Eager Loading detected
+  Vote => [:previous_vote]
+  Remove from your finder: :includes => [:previous_vote]
+
+2016-04-16 16:41:11[WARN] user: root
+/api/v1/votes/my_votes?group_id=5
+Unused Eager Loading detected
+  Vote => [:previous_vote]
+  Remove from your finder: :includes => [:previous_vote]
+
+2016-04-16 16:41:23[WARN] user: root
+/api/v1/proposals
+N+1 Query detected
+  Discussion => [:current_motion]
+  Add to your finder: :includes => [:current_motion]
+N+1 Query method call stack
+  /root/dockku/loomio/app/models/discussion.rb:144:in `motion_can_be_raised?'
+  /root/dockku/loomio/app/models/ability.rb:247:in `block in initialize'
+  /root/dockku/loomio/app/services/motion_service.rb:4:in `create'
+  /root/dockku/loomio/app/controllers/api/restful_controller.rb:11:in `create_action'
+
+/root/dockku/loomio/app/models/discussion.rb:144:in `motion_can_be_raised?'
+/root/dockku/loomio/app/models/ability.rb:247:in `block in initialize'
+/root/dockku/loomio/app/services/motion_service.rb:4:in `create'
+/root/dockku/loomio/app/controllers/api/restful_controller.rb:11:in `create_action'2016-04-16 16:41:23[WARN] user: root
+/api/v1/proposals
+N+1 Query detected
+  Discussion => [:group]
+  Add to your finder: :includes => [:group]
+N+1 Query method call stack
+  /root/dockku/loomio/app/models/ability.rb:248:in `block in initialize'
+  /root/dockku/loomio/app/services/motion_service.rb:4:in `create'
+  /root/dockku/loomio/app/controllers/api/restful_controller.rb:11:in `create_action'
+
+/root/dockku/loomio/app/models/ability.rb:248:in `block in initialize'
+/root/dockku/loomio/app/services/motion_service.rb:4:in `create'
+/root/dockku/loomio/app/controllers/api/restful_controller.rb:11:in `create_action'2016-04-16 16:41:23[WARN] user: root
+/api/v1/proposals
+Unused Eager Loading detected
+  Event => [:user]
+  Remove from your finder: :includes => [:user]
+
+2016-04-16 17:45:35[WARN] user: root
+/api/v1/votes
+Unused Eager Loading detected
+  Vote => [:previous_vote]
+  Remove from your finder: :includes => [:previous_vote]
+
+2016-04-16 17:45:35[WARN] user: root
+/api/v1/votes
+Unused Eager Loading detected
+  Event => [:user]
+  Remove from your finder: :includes => [:user]
+
+2016-04-16 17:45:41[WARN] user: root
+/api/v1/discussions?from=0&per=25&group_id=jlCXJvx5
+N+1 Query detected
+  Motion => [:discussion]
+  Add to your finder: :includes => [:discussion]
+N+1 Query method call stack
+  /root/dockku/loomio/app/models/motion.rb:37:in `group_id'
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+  /root/dockku/loomio/app/controllers/api/discussions_controller.rb:9:in `index'
+
+/root/dockku/loomio/app/models/motion.rb:37:in `group_id'
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+/root/dockku/loomio/app/controllers/api/discussions_controller.rb:9:in `index'2016-04-16 17:45:41[WARN] user: root
+/api/v1/discussions?from=0&per=25&group_id=jlCXJvx5
+Unused Eager Loading detected
+  Vote => [:previous_vote]
+  Remove from your finder: :includes => [:previous_vote]
+
+2016-04-16 17:45:41[WARN] user: root
+/api/v1/votes/my_votes?group_id=5
+N+1 Query detected
+  Motion => [:author]
+  Add to your finder: :includes => [:author]
+N+1 Query method call stack
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+  /root/dockku/loomio/app/controllers/api/votes_controller.rb:10:in `my_votes'
+
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+/root/dockku/loomio/app/controllers/api/votes_controller.rb:10:in `my_votes'2016-04-16 17:45:41[WARN] user: root
+/api/v1/votes/my_votes?group_id=5
+N+1 Query detected
+  Motion => [:outcome_author]
+  Add to your finder: :includes => [:outcome_author]
+N+1 Query method call stack
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+  /root/dockku/loomio/app/controllers/api/votes_controller.rb:10:in `my_votes'
+
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+/root/dockku/loomio/app/controllers/api/votes_controller.rb:10:in `my_votes'2016-04-16 17:45:41[WARN] user: root
+/api/v1/votes/my_votes?group_id=5
+Unused Eager Loading detected
+  Vote => [:previous_vote]
+  Remove from your finder: :includes => [:previous_vote]
+
+2016-04-16 17:46:01[WARN] user: root
+/api/v1/proposals
+N+1 Query detected
+  Discussion => [:current_motion]
+  Add to your finder: :includes => [:current_motion]
+N+1 Query method call stack
+  /root/dockku/loomio/app/models/discussion.rb:144:in `motion_can_be_raised?'
+  /root/dockku/loomio/app/models/ability.rb:247:in `block in initialize'
+  /root/dockku/loomio/app/services/motion_service.rb:4:in `create'
+  /root/dockku/loomio/app/controllers/api/restful_controller.rb:11:in `create_action'
+
+/root/dockku/loomio/app/models/discussion.rb:144:in `motion_can_be_raised?'
+/root/dockku/loomio/app/models/ability.rb:247:in `block in initialize'
+/root/dockku/loomio/app/services/motion_service.rb:4:in `create'
+/root/dockku/loomio/app/controllers/api/restful_controller.rb:11:in `create_action'2016-04-16 17:46:01[WARN] user: root
+/api/v1/proposals
+N+1 Query detected
+  Discussion => [:group]
+  Add to your finder: :includes => [:group]
+N+1 Query method call stack
+  /root/dockku/loomio/app/models/ability.rb:248:in `block in initialize'
+  /root/dockku/loomio/app/services/motion_service.rb:4:in `create'
+  /root/dockku/loomio/app/controllers/api/restful_controller.rb:11:in `create_action'
+
+/root/dockku/loomio/app/models/ability.rb:248:in `block in initialize'
+/root/dockku/loomio/app/services/motion_service.rb:4:in `create'
+/root/dockku/loomio/app/controllers/api/restful_controller.rb:11:in `create_action'2016-04-16 17:46:01[WARN] user: root
+/api/v1/proposals
+Unused Eager Loading detected
+  Event => [:user]
+  Remove from your finder: :includes => [:user]
+
+2016-04-16 17:46:15[WARN] user: root
+/api/v1/discussions/d6MH0Jfn/mark_as_read
+Unused Eager Loading detected
+  Event => [:user]
+  Remove from your finder: :includes => [:user]
+
+2016-04-16 17:46:27[WARN] user: root
+/api/v1/proposals
+N+1 Query detected
+  Discussion => [:current_motion]
+  Add to your finder: :includes => [:current_motion]
+N+1 Query method call stack
+  /root/dockku/loomio/app/models/discussion.rb:144:in `motion_can_be_raised?'
+  /root/dockku/loomio/app/models/ability.rb:247:in `block in initialize'
+  /root/dockku/loomio/app/services/motion_service.rb:4:in `create'
+  /root/dockku/loomio/app/controllers/api/restful_controller.rb:11:in `create_action'
+
+/root/dockku/loomio/app/models/discussion.rb:144:in `motion_can_be_raised?'
+/root/dockku/loomio/app/models/ability.rb:247:in `block in initialize'
+/root/dockku/loomio/app/services/motion_service.rb:4:in `create'
+/root/dockku/loomio/app/controllers/api/restful_controller.rb:11:in `create_action'2016-04-16 17:46:27[WARN] user: root
+/api/v1/proposals
+N+1 Query detected
+  Discussion => [:group]
+  Add to your finder: :includes => [:group]
+N+1 Query method call stack
+  /root/dockku/loomio/app/models/ability.rb:248:in `block in initialize'
+  /root/dockku/loomio/app/services/motion_service.rb:4:in `create'
+  /root/dockku/loomio/app/controllers/api/restful_controller.rb:11:in `create_action'
+
+/root/dockku/loomio/app/models/ability.rb:248:in `block in initialize'
+/root/dockku/loomio/app/services/motion_service.rb:4:in `create'
+/root/dockku/loomio/app/controllers/api/restful_controller.rb:11:in `create_action'2016-04-16 17:46:27[WARN] user: root
+/api/v1/proposals
+Unused Eager Loading detected
+  Event => [:user]
+  Remove from your finder: :includes => [:user]
+
+2016-04-16 17:46:40[WARN] user: root
+/api/v1/votes
+Unused Eager Loading detected
+  Vote => [:previous_vote]
+  Remove from your finder: :includes => [:previous_vote]
+
+2016-04-16 17:46:40[WARN] user: root
+/api/v1/votes
+Unused Eager Loading detected
+  Event => [:user]
+  Remove from your finder: :includes => [:user]
+
+2016-04-16 17:46:50[WARN] user: root
+/api/v1/votes?motion_id=6
+Unused Eager Loading detected
+  Vote => [:previous_vote]
+  Remove from your finder: :includes => [:previous_vote]
+
+2016-04-16 17:46:52[WARN] user: root
+/api/v1/discussions/d6MH0Jfn/mark_as_read
+Unused Eager Loading detected
+  Event => [:user]
+  Remove from your finder: :includes => [:user]
+
+2016-04-16 17:47:01[WARN] user: root
+/api/v1/proposals
+N+1 Query detected
+  Discussion => [:current_motion]
+  Add to your finder: :includes => [:current_motion]
+N+1 Query method call stack
+  /root/dockku/loomio/app/models/discussion.rb:144:in `motion_can_be_raised?'
+  /root/dockku/loomio/app/models/ability.rb:247:in `block in initialize'
+  /root/dockku/loomio/app/services/motion_service.rb:4:in `create'
+  /root/dockku/loomio/app/controllers/api/restful_controller.rb:11:in `create_action'
+
+/root/dockku/loomio/app/models/discussion.rb:144:in `motion_can_be_raised?'
+/root/dockku/loomio/app/models/ability.rb:247:in `block in initialize'
+/root/dockku/loomio/app/services/motion_service.rb:4:in `create'
+/root/dockku/loomio/app/controllers/api/restful_controller.rb:11:in `create_action'2016-04-16 17:47:01[WARN] user: root
+/api/v1/proposals
+N+1 Query detected
+  Discussion => [:group]
+  Add to your finder: :includes => [:group]
+N+1 Query method call stack
+  /root/dockku/loomio/app/models/ability.rb:248:in `block in initialize'
+  /root/dockku/loomio/app/services/motion_service.rb:4:in `create'
+  /root/dockku/loomio/app/controllers/api/restful_controller.rb:11:in `create_action'
+
+/root/dockku/loomio/app/models/ability.rb:248:in `block in initialize'
+/root/dockku/loomio/app/services/motion_service.rb:4:in `create'
+/root/dockku/loomio/app/controllers/api/restful_controller.rb:11:in `create_action'2016-04-16 17:47:01[WARN] user: root
+/api/v1/proposals
+Unused Eager Loading detected
+  Event => [:user]
+  Remove from your finder: :includes => [:user]
+
+2016-04-16 17:47:06[WARN] user: root
+/api/v1/votes
+Unused Eager Loading detected
+  Vote => [:previous_vote]
+  Remove from your finder: :includes => [:previous_vote]
+
+2016-04-16 17:47:06[WARN] user: root
+/api/v1/votes
+Unused Eager Loading detected
+  Event => [:user]
+  Remove from your finder: :includes => [:user]
+
+2016-04-16 17:47:28[WARN] user: root
+/api/v1/groups
+Unused Eager Loading detected
+  Event => [:user]
+  Remove from your finder: :includes => [:user]
+
+2016-04-16 17:47:44[WARN] user: root
+/api/v1/proposals
+N+1 Query detected
+  Discussion => [:current_motion]
+  Add to your finder: :includes => [:current_motion]
+N+1 Query method call stack
+  /root/dockku/loomio/app/models/discussion.rb:144:in `motion_can_be_raised?'
+  /root/dockku/loomio/app/models/ability.rb:247:in `block in initialize'
+  /root/dockku/loomio/app/services/motion_service.rb:4:in `create'
+  /root/dockku/loomio/app/controllers/api/restful_controller.rb:11:in `create_action'
+
+/root/dockku/loomio/app/models/discussion.rb:144:in `motion_can_be_raised?'
+/root/dockku/loomio/app/models/ability.rb:247:in `block in initialize'
+/root/dockku/loomio/app/services/motion_service.rb:4:in `create'
+/root/dockku/loomio/app/controllers/api/restful_controller.rb:11:in `create_action'2016-04-16 17:47:44[WARN] user: root
+/api/v1/proposals
+N+1 Query detected
+  Discussion => [:group]
+  Add to your finder: :includes => [:group]
+N+1 Query method call stack
+  /root/dockku/loomio/app/models/ability.rb:248:in `block in initialize'
+  /root/dockku/loomio/app/services/motion_service.rb:4:in `create'
+  /root/dockku/loomio/app/controllers/api/restful_controller.rb:11:in `create_action'
+
+/root/dockku/loomio/app/models/ability.rb:248:in `block in initialize'
+/root/dockku/loomio/app/services/motion_service.rb:4:in `create'
+/root/dockku/loomio/app/controllers/api/restful_controller.rb:11:in `create_action'2016-04-16 17:47:44[WARN] user: root
+/api/v1/proposals
+Unused Eager Loading detected
+  Event => [:user]
+  Remove from your finder: :includes => [:user]
+
+2016-04-16 17:47:56[WARN] user: root
+/api/v1/discussions?from=0&per=25&group_id=eR0OFh9G
+N+1 Query detected
+  Motion => [:discussion]
+  Add to your finder: :includes => [:discussion]
+N+1 Query method call stack
+  /root/dockku/loomio/app/models/motion.rb:37:in `group_id'
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+  /root/dockku/loomio/app/controllers/api/discussions_controller.rb:9:in `index'
+
+/root/dockku/loomio/app/models/motion.rb:37:in `group_id'
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+/root/dockku/loomio/app/controllers/api/discussions_controller.rb:9:in `index'2016-04-16 17:49:45[WARN] user: root
+/dashboard
+N+1 Query detected
+  Membership => [:group]
+  Add to your finder: :includes => [:group]
+N+1 Query method call stack
+  /root/dockku/loomio/app/views/layouts/angular.html.haml:32:in `_app_views_layouts_angular_html_haml___644081824321477296_47280289933080'
+  /root/dockku/loomio/app/helpers/angular_helper.rb:7:in `boot_angular_ui'
+  /root/dockku/loomio/app/helpers/time_zone_helper.rb:4:in `user_time_zone'
+
+/root/dockku/loomio/app/views/layouts/angular.html.haml:32:in `_app_views_layouts_angular_html_haml___644081824321477296_47280289933080'
+/root/dockku/loomio/app/helpers/angular_helper.rb:7:in `boot_angular_ui'
+/root/dockku/loomio/app/helpers/time_zone_helper.rb:4:in `user_time_zone'2016-04-16 17:49:45[WARN] user: root
+/dashboard
+N+1 Query detected
+  Membership => [:user]
+  Add to your finder: :includes => [:user]
+N+1 Query method call stack
+  /root/dockku/loomio/app/views/layouts/angular.html.haml:32:in `_app_views_layouts_angular_html_haml___644081824321477296_47280289933080'
+  /root/dockku/loomio/app/helpers/angular_helper.rb:7:in `boot_angular_ui'
+  /root/dockku/loomio/app/helpers/time_zone_helper.rb:4:in `user_time_zone'
+
+/root/dockku/loomio/app/views/layouts/angular.html.haml:32:in `_app_views_layouts_angular_html_haml___644081824321477296_47280289933080'
+/root/dockku/loomio/app/helpers/angular_helper.rb:7:in `boot_angular_ui'
+/root/dockku/loomio/app/helpers/time_zone_helper.rb:4:in `user_time_zone'2016-04-16 17:49:45[WARN] user: root
+/dashboard
+N+1 Query detected
+  Membership => [:inviter]
+  Add to your finder: :includes => [:inviter]
+N+1 Query method call stack
+  /root/dockku/loomio/app/views/layouts/angular.html.haml:32:in `_app_views_layouts_angular_html_haml___644081824321477296_47280289933080'
+  /root/dockku/loomio/app/helpers/angular_helper.rb:7:in `boot_angular_ui'
+  /root/dockku/loomio/app/helpers/time_zone_helper.rb:4:in `user_time_zone'
+
+/root/dockku/loomio/app/views/layouts/angular.html.haml:32:in `_app_views_layouts_angular_html_haml___644081824321477296_47280289933080'
+/root/dockku/loomio/app/helpers/angular_helper.rb:7:in `boot_angular_ui'
+/root/dockku/loomio/app/helpers/time_zone_helper.rb:4:in `user_time_zone'2016-04-16 17:49:48[WARN] user: root
+/api/v1/discussions/inbox?from=0&per=100&since=Sat%20Mar%2005%202016%2000%3A00%3A00%20GMT%2B0800%20(SGT)&timeframe_for=last_activity_at
+N+1 Query detected
+  Group => [:subscription]
+  Add to your finder: :includes => [:subscription]
+N+1 Query method call stack
+  /root/dockku/loomio/app/serializers/group_serializer.rb:90:in `subscription'
+  /root/dockku/loomio/app/serializers/group_serializer.rb:50:in `subscription_kind'
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+  /root/dockku/loomio/app/controllers/api/discussions_controller.rb:21:in `inbox'
+
+/root/dockku/loomio/app/serializers/group_serializer.rb:90:in `subscription'
+/root/dockku/loomio/app/serializers/group_serializer.rb:50:in `subscription_kind'
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+/root/dockku/loomio/app/controllers/api/discussions_controller.rb:21:in `inbox'2016-04-16 17:49:49[WARN] user: root
+/api/v1/discussions/dashboard?filter=show_all&from=0&per=50
+N+1 Query detected
+  Group => [:subscription]
+  Add to your finder: :includes => [:subscription]
+N+1 Query method call stack
+  /root/dockku/loomio/app/serializers/group_serializer.rb:90:in `subscription'
+  /root/dockku/loomio/app/serializers/group_serializer.rb:50:in `subscription_kind'
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+  /root/dockku/loomio/app/controllers/api/discussions_controller.rb:15:in `dashboard'
+
+/root/dockku/loomio/app/serializers/group_serializer.rb:90:in `subscription'
+/root/dockku/loomio/app/serializers/group_serializer.rb:50:in `subscription_kind'
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+/root/dockku/loomio/app/controllers/api/discussions_controller.rb:15:in `dashboard'2016-04-16 17:49:49[WARN] user: root
+/api/v1/discussions/dashboard?filter=show_all&from=0&per=50
+N+1 Query detected
+  Motion => [:discussion]
+  Add to your finder: :includes => [:discussion]
+N+1 Query method call stack
+  /root/dockku/loomio/app/models/motion.rb:37:in `group_id'
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+  /root/dockku/loomio/app/controllers/api/discussions_controller.rb:15:in `dashboard'
+
+/root/dockku/loomio/app/models/motion.rb:37:in `group_id'
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+/root/dockku/loomio/app/controllers/api/discussions_controller.rb:15:in `dashboard'2016-04-16 17:49:49[WARN] user: root
+/api/v1/discussions/dashboard?filter=show_all&from=0&per=50
+Unused Eager Loading detected
+  Vote => [:previous_vote]
+  Remove from your finder: :includes => [:previous_vote]
+
+2016-04-16 17:49:55[WARN] user: root
+/api/v1/discussions?from=0&per=25&group_id=eR0OFh9G
+N+1 Query detected
+  Motion => [:discussion]
+  Add to your finder: :includes => [:discussion]
+N+1 Query method call stack
+  /root/dockku/loomio/app/models/motion.rb:37:in `group_id'
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+  /root/dockku/loomio/app/controllers/api/discussions_controller.rb:9:in `index'
+
+/root/dockku/loomio/app/models/motion.rb:37:in `group_id'
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+/root/dockku/loomio/app/controllers/api/discussions_controller.rb:9:in `index'2016-04-16 17:50:41[WARN] user: root
+/api/v1/votes
+Unused Eager Loading detected
+  Vote => [:previous_vote]
+  Remove from your finder: :includes => [:previous_vote]
+
+2016-04-16 17:50:41[WARN] user: root
+/api/v1/votes
+Unused Eager Loading detected
+  Event => [:user]
+  Remove from your finder: :includes => [:user]
+
+2016-04-16 17:50:49[WARN] user: root
+/api/v1/votes?motion_id=9
+Unused Eager Loading detected
+  Vote => [:previous_vote]
+  Remove from your finder: :includes => [:previous_vote]
+
+2016-04-16 17:50:56[WARN] user: root
+/api/v1/proposals
+N+1 Query detected
+  Discussion => [:current_motion]
+  Add to your finder: :includes => [:current_motion]
+N+1 Query method call stack
+  /root/dockku/loomio/app/models/discussion.rb:144:in `motion_can_be_raised?'
+  /root/dockku/loomio/app/models/ability.rb:247:in `block in initialize'
+  /root/dockku/loomio/app/services/motion_service.rb:4:in `create'
+  /root/dockku/loomio/app/controllers/api/restful_controller.rb:11:in `create_action'
+
+/root/dockku/loomio/app/models/discussion.rb:144:in `motion_can_be_raised?'
+/root/dockku/loomio/app/models/ability.rb:247:in `block in initialize'
+/root/dockku/loomio/app/services/motion_service.rb:4:in `create'
+/root/dockku/loomio/app/controllers/api/restful_controller.rb:11:in `create_action'2016-04-16 17:50:56[WARN] user: root
+/api/v1/proposals
+N+1 Query detected
+  Discussion => [:group]
+  Add to your finder: :includes => [:group]
+N+1 Query method call stack
+  /root/dockku/loomio/app/models/ability.rb:248:in `block in initialize'
+  /root/dockku/loomio/app/services/motion_service.rb:4:in `create'
+  /root/dockku/loomio/app/controllers/api/restful_controller.rb:11:in `create_action'
+
+/root/dockku/loomio/app/models/ability.rb:248:in `block in initialize'
+/root/dockku/loomio/app/services/motion_service.rb:4:in `create'
+/root/dockku/loomio/app/controllers/api/restful_controller.rb:11:in `create_action'2016-04-16 17:50:56[WARN] user: root
+/api/v1/proposals
+Unused Eager Loading detected
+  Event => [:user]
+  Remove from your finder: :includes => [:user]
+
+2016-04-16 17:51:15[WARN] user: root
+/api/v1/discussions/8l5iaRSO/mark_as_read
+Unused Eager Loading detected
+  Event => [:user]
+  Remove from your finder: :includes => [:user]
+
+2016-04-16 17:54:24[WARN] user: root
+/dashboard
+N+1 Query detected
+  Membership => [:group]
+  Add to your finder: :includes => [:group]
+N+1 Query method call stack
+  /root/dockku/loomio/app/views/layouts/angular.html.haml:32:in `_app_views_layouts_angular_html_haml___644081824321477296_47280289933080'
+  /root/dockku/loomio/app/helpers/angular_helper.rb:7:in `boot_angular_ui'
+  /root/dockku/loomio/app/helpers/time_zone_helper.rb:4:in `user_time_zone'
+
+/root/dockku/loomio/app/views/layouts/angular.html.haml:32:in `_app_views_layouts_angular_html_haml___644081824321477296_47280289933080'
+/root/dockku/loomio/app/helpers/angular_helper.rb:7:in `boot_angular_ui'
+/root/dockku/loomio/app/helpers/time_zone_helper.rb:4:in `user_time_zone'2016-04-16 17:54:24[WARN] user: root
+/dashboard
+N+1 Query detected
+  Membership => [:user]
+  Add to your finder: :includes => [:user]
+N+1 Query method call stack
+  /root/dockku/loomio/app/views/layouts/angular.html.haml:32:in `_app_views_layouts_angular_html_haml___644081824321477296_47280289933080'
+  /root/dockku/loomio/app/helpers/angular_helper.rb:7:in `boot_angular_ui'
+  /root/dockku/loomio/app/helpers/time_zone_helper.rb:4:in `user_time_zone'
+
+/root/dockku/loomio/app/views/layouts/angular.html.haml:32:in `_app_views_layouts_angular_html_haml___644081824321477296_47280289933080'
+/root/dockku/loomio/app/helpers/angular_helper.rb:7:in `boot_angular_ui'
+/root/dockku/loomio/app/helpers/time_zone_helper.rb:4:in `user_time_zone'2016-04-16 17:54:24[WARN] user: root
+/dashboard
+N+1 Query detected
+  Membership => [:inviter]
+  Add to your finder: :includes => [:inviter]
+N+1 Query method call stack
+  /root/dockku/loomio/app/views/layouts/angular.html.haml:32:in `_app_views_layouts_angular_html_haml___644081824321477296_47280289933080'
+  /root/dockku/loomio/app/helpers/angular_helper.rb:7:in `boot_angular_ui'
+  /root/dockku/loomio/app/helpers/time_zone_helper.rb:4:in `user_time_zone'
+
+/root/dockku/loomio/app/views/layouts/angular.html.haml:32:in `_app_views_layouts_angular_html_haml___644081824321477296_47280289933080'
+/root/dockku/loomio/app/helpers/angular_helper.rb:7:in `boot_angular_ui'
+/root/dockku/loomio/app/helpers/time_zone_helper.rb:4:in `user_time_zone'2016-04-16 17:54:31[WARN] user: root
+/api/v1/discussions/inbox?from=0&per=100&since=Sat%20Mar%2005%202016%2000%3A00%3A00%20GMT%2B0800%20(SGT)&timeframe_for=last_activity_at
+N+1 Query detected
+  Group => [:subscription]
+  Add to your finder: :includes => [:subscription]
+N+1 Query method call stack
+  /root/dockku/loomio/app/serializers/group_serializer.rb:90:in `subscription'
+  /root/dockku/loomio/app/serializers/group_serializer.rb:50:in `subscription_kind'
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+  /root/dockku/loomio/app/controllers/api/discussions_controller.rb:21:in `inbox'
+
+/root/dockku/loomio/app/serializers/group_serializer.rb:90:in `subscription'
+/root/dockku/loomio/app/serializers/group_serializer.rb:50:in `subscription_kind'
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+/root/dockku/loomio/app/controllers/api/discussions_controller.rb:21:in `inbox'2016-04-16 17:54:32[WARN] user: root
+/api/v1/discussions/dashboard?filter=show_all&from=0&per=50
+N+1 Query detected
+  Group => [:subscription]
+  Add to your finder: :includes => [:subscription]
+N+1 Query method call stack
+  /root/dockku/loomio/app/serializers/group_serializer.rb:90:in `subscription'
+  /root/dockku/loomio/app/serializers/group_serializer.rb:50:in `subscription_kind'
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+  /root/dockku/loomio/app/controllers/api/discussions_controller.rb:15:in `dashboard'
+
+/root/dockku/loomio/app/serializers/group_serializer.rb:90:in `subscription'
+/root/dockku/loomio/app/serializers/group_serializer.rb:50:in `subscription_kind'
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+/root/dockku/loomio/app/controllers/api/discussions_controller.rb:15:in `dashboard'2016-04-16 17:54:32[WARN] user: root
+/api/v1/discussions/dashboard?filter=show_all&from=0&per=50
+N+1 Query detected
+  Motion => [:discussion]
+  Add to your finder: :includes => [:discussion]
+N+1 Query method call stack
+  /root/dockku/loomio/app/models/motion.rb:37:in `group_id'
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+  /root/dockku/loomio/app/controllers/api/discussions_controller.rb:15:in `dashboard'
+
+/root/dockku/loomio/app/models/motion.rb:37:in `group_id'
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+/root/dockku/loomio/app/controllers/api/discussions_controller.rb:15:in `dashboard'2016-04-16 17:54:32[WARN] user: root
+/api/v1/discussions/dashboard?filter=show_all&from=0&per=50
+Unused Eager Loading detected
+  Vote => [:previous_vote]
+  Remove from your finder: :includes => [:previous_vote]
+
+2016-04-16 17:54:36[WARN] user: root
+/api/v1/discussions/d6MH0Jfn
+Unused Eager Loading detected
+  Vote => [:previous_vote]
+  Remove from your finder: :includes => [:previous_vote]
+
+2016-04-16 17:54:37[WARN] user: root
+/api/v1/votes/my_votes?discussion_id=8
+N+1 Query detected
+  Motion => [:author]
+  Add to your finder: :includes => [:author]
+N+1 Query method call stack
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+  /root/dockku/loomio/app/controllers/api/votes_controller.rb:10:in `my_votes'
+
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+/root/dockku/loomio/app/controllers/api/votes_controller.rb:10:in `my_votes'2016-04-16 17:54:37[WARN] user: root
+/api/v1/votes/my_votes?discussion_id=8
+N+1 Query detected
+  Motion => [:outcome_author]
+  Add to your finder: :includes => [:outcome_author]
+N+1 Query method call stack
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+  /root/dockku/loomio/app/controllers/api/votes_controller.rb:10:in `my_votes'
+
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+/root/dockku/loomio/app/controllers/api/votes_controller.rb:10:in `my_votes'2016-04-16 17:54:37[WARN] user: root
+/api/v1/votes/my_votes?discussion_id=8
+Unused Eager Loading detected
+  Vote => [:previous_vote]
+  Remove from your finder: :includes => [:previous_vote]
+
+2016-04-16 17:54:37[WARN] user: root
+/api/v1/events?from=1&per=30&comment_id=undefined&discussion_key=d6MH0Jfn
+N+1 Query detected
+  Motion => [:author]
+  Add to your finder: :includes => [:author]
+N+1 Query method call stack
+  /root/dockku/loomio/app/models/motion.rb:80:in `user'
+  /root/dockku/loomio/app/serializers/event_serializer.rb:16:in `actor'
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+
+/root/dockku/loomio/app/models/motion.rb:80:in `user'
+/root/dockku/loomio/app/serializers/event_serializer.rb:16:in `actor'
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'2016-04-16 17:54:37[WARN] user: root
+/api/v1/events?from=1&per=30&comment_id=undefined&discussion_key=d6MH0Jfn
+N+1 Query detected
+  Motion => [:discussion]
+  Add to your finder: :includes => [:discussion]
+N+1 Query method call stack
+  /root/dockku/loomio/app/serializers/event_serializer.rb:36:in `discussion'
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+
+/root/dockku/loomio/app/serializers/event_serializer.rb:36:in `discussion'
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'2016-04-16 17:54:37[WARN] user: root
+/api/v1/events?from=1&per=30&comment_id=undefined&discussion_key=d6MH0Jfn
+N+1 Query detected
+  Discussion => [:author]
+  Add to your finder: :includes => [:author]
+N+1 Query method call stack
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'2016-04-16 17:54:37[WARN] user: root
+/api/v1/events?from=1&per=30&comment_id=undefined&discussion_key=d6MH0Jfn
+N+1 Query detected
+  Discussion => [:group]
+  Add to your finder: :includes => [:group]
+N+1 Query method call stack
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'2016-04-16 17:54:37[WARN] user: root
+/api/v1/events?from=1&per=30&comment_id=undefined&discussion_key=d6MH0Jfn
+N+1 Query detected
+  Discussion => [:current_motion]
+  Add to your finder: :includes => [:current_motion]
+N+1 Query method call stack
+  /root/dockku/loomio/app/serializers/discussion_serializer.rb:65:in `active_proposal'
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+
+/root/dockku/loomio/app/serializers/discussion_serializer.rb:65:in `active_proposal'
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'2016-04-16 17:54:37[WARN] user: root
+/api/v1/events?from=1&per=30&comment_id=undefined&discussion_key=d6MH0Jfn
+N+1 Query detected
+  Motion => [:outcome_author]
+  Add to your finder: :includes => [:outcome_author]
+N+1 Query method call stack
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'2016-04-16 17:54:37[WARN] user: root
+/api/v1/events?from=1&per=30&comment_id=undefined&discussion_key=d6MH0Jfn
+N+1 Query detected
+  Vote => [:user]
+  Add to your finder: :includes => [:user]
+N+1 Query method call stack
+  /root/dockku/loomio/app/serializers/event_serializer.rb:16:in `actor'
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+
+/root/dockku/loomio/app/serializers/event_serializer.rb:16:in `actor'
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'2016-04-16 17:54:37[WARN] user: root
+/api/v1/events?from=1&per=30&comment_id=undefined&discussion_key=d6MH0Jfn
+N+1 Query detected
+  Vote => [:motion]
+  Add to your finder: :includes => [:motion]
+N+1 Query method call stack
+  /root/dockku/loomio/app/models/vote.rb:25:in `discussion'
+  /root/dockku/loomio/app/serializers/event_serializer.rb:36:in `discussion'
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+
+/root/dockku/loomio/app/models/vote.rb:25:in `discussion'
+/root/dockku/loomio/app/serializers/event_serializer.rb:36:in `discussion'
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'2016-04-16 17:54:37[WARN] user: root
+/api/v1/events?from=1&per=30&comment_id=undefined&discussion_key=d6MH0Jfn
+Unused Eager Loading detected
+  Vote => [:previous_vote]
+  Remove from your finder: :includes => [:previous_vote]
+
+2016-04-16 17:54:37[WARN] user: root
+/api/v1/votes?motion_id=7
+Unused Eager Loading detected
+  Vote => [:previous_vote]
+  Remove from your finder: :includes => [:previous_vote]
+
+2016-04-16 17:54:38[WARN] user: root
+/api/v1/proposals?discussion_key=d6MH0Jfn
+N+1 Query detected
+  Motion => [:author]
+  Add to your finder: :includes => [:author]
+N+1 Query method call stack
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+  /root/dockku/loomio/app/controllers/api/motions_controller.rb:33:in `index'
+
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+/root/dockku/loomio/app/controllers/api/motions_controller.rb:33:in `index'2016-04-16 17:54:38[WARN] user: root
+/api/v1/proposals?discussion_key=d6MH0Jfn
+N+1 Query detected
+  Motion => [:outcome_author]
+  Add to your finder: :includes => [:outcome_author]
+N+1 Query method call stack
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+  /root/dockku/loomio/app/controllers/api/motions_controller.rb:33:in `index'
+
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+/root/dockku/loomio/app/controllers/api/motions_controller.rb:33:in `index'2016-04-16 17:54:47[WARN] user: root
+/api/v1/discussions/dashboard?filter=show_all&from=0&per=50
+N+1 Query detected
+  Group => [:subscription]
+  Add to your finder: :includes => [:subscription]
+N+1 Query method call stack
+  /root/dockku/loomio/app/serializers/group_serializer.rb:90:in `subscription'
+  /root/dockku/loomio/app/serializers/group_serializer.rb:50:in `subscription_kind'
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+  /root/dockku/loomio/app/controllers/api/discussions_controller.rb:15:in `dashboard'
+
+/root/dockku/loomio/app/serializers/group_serializer.rb:90:in `subscription'
+/root/dockku/loomio/app/serializers/group_serializer.rb:50:in `subscription_kind'
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+/root/dockku/loomio/app/controllers/api/discussions_controller.rb:15:in `dashboard'2016-04-16 17:54:47[WARN] user: root
+/api/v1/discussions/dashboard?filter=show_all&from=0&per=50
+N+1 Query detected
+  Motion => [:discussion]
+  Add to your finder: :includes => [:discussion]
+N+1 Query method call stack
+  /root/dockku/loomio/app/models/motion.rb:37:in `group_id'
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+  /root/dockku/loomio/app/controllers/api/discussions_controller.rb:15:in `dashboard'
+
+/root/dockku/loomio/app/models/motion.rb:37:in `group_id'
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+/root/dockku/loomio/app/controllers/api/discussions_controller.rb:15:in `dashboard'2016-04-16 17:54:47[WARN] user: root
+/api/v1/discussions/dashboard?filter=show_all&from=0&per=50
+Unused Eager Loading detected
+  Vote => [:previous_vote]
+  Remove from your finder: :includes => [:previous_vote]
+
+2016-04-16 17:54:52[WARN] user: root
+/api/v1/discussions/d6MH0Jfn
+Unused Eager Loading detected
+  Vote => [:previous_vote]
+  Remove from your finder: :includes => [:previous_vote]
+
+2016-04-16 17:54:52[WARN] user: root
+/api/v1/votes/my_votes?discussion_id=8
+N+1 Query detected
+  Motion => [:author]
+  Add to your finder: :includes => [:author]
+N+1 Query method call stack
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+  /root/dockku/loomio/app/controllers/api/votes_controller.rb:10:in `my_votes'
+
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+/root/dockku/loomio/app/controllers/api/votes_controller.rb:10:in `my_votes'2016-04-16 17:54:52[WARN] user: root
+/api/v1/votes/my_votes?discussion_id=8
+N+1 Query detected
+  Motion => [:outcome_author]
+  Add to your finder: :includes => [:outcome_author]
+N+1 Query method call stack
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+  /root/dockku/loomio/app/controllers/api/votes_controller.rb:10:in `my_votes'
+
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+/root/dockku/loomio/app/controllers/api/votes_controller.rb:10:in `my_votes'2016-04-16 17:54:52[WARN] user: root
+/api/v1/votes/my_votes?discussion_id=8
+Unused Eager Loading detected
+  Vote => [:previous_vote]
+  Remove from your finder: :includes => [:previous_vote]
+
+2016-04-16 17:54:52[WARN] user: root
+/api/v1/proposals?discussion_key=d6MH0Jfn
+N+1 Query detected
+  Motion => [:author]
+  Add to your finder: :includes => [:author]
+N+1 Query method call stack
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+  /root/dockku/loomio/app/controllers/api/motions_controller.rb:33:in `index'
+
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+/root/dockku/loomio/app/controllers/api/motions_controller.rb:33:in `index'2016-04-16 17:54:52[WARN] user: root
+/api/v1/proposals?discussion_key=d6MH0Jfn
+N+1 Query detected
+  Motion => [:outcome_author]
+  Add to your finder: :includes => [:outcome_author]
+N+1 Query method call stack
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+  /root/dockku/loomio/app/controllers/api/motions_controller.rb:33:in `index'
+
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+/root/dockku/loomio/app/controllers/api/motions_controller.rb:33:in `index'2016-04-16 17:54:52[WARN] user: root
+/api/v1/events?from=1&per=30&comment_id=undefined&discussion_key=d6MH0Jfn
+N+1 Query detected
+  Motion => [:author]
+  Add to your finder: :includes => [:author]
+N+1 Query method call stack
+  /root/dockku/loomio/app/models/motion.rb:80:in `user'
+  /root/dockku/loomio/app/serializers/event_serializer.rb:16:in `actor'
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+
+/root/dockku/loomio/app/models/motion.rb:80:in `user'
+/root/dockku/loomio/app/serializers/event_serializer.rb:16:in `actor'
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'2016-04-16 17:54:52[WARN] user: root
+/api/v1/events?from=1&per=30&comment_id=undefined&discussion_key=d6MH0Jfn
+N+1 Query detected
+  Motion => [:discussion]
+  Add to your finder: :includes => [:discussion]
+N+1 Query method call stack
+  /root/dockku/loomio/app/serializers/event_serializer.rb:36:in `discussion'
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+
+/root/dockku/loomio/app/serializers/event_serializer.rb:36:in `discussion'
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'2016-04-16 17:54:52[WARN] user: root
+/api/v1/events?from=1&per=30&comment_id=undefined&discussion_key=d6MH0Jfn
+N+1 Query detected
+  Discussion => [:author]
+  Add to your finder: :includes => [:author]
+N+1 Query method call stack
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'2016-04-16 17:54:52[WARN] user: root
+/api/v1/events?from=1&per=30&comment_id=undefined&discussion_key=d6MH0Jfn
+N+1 Query detected
+  Discussion => [:group]
+  Add to your finder: :includes => [:group]
+N+1 Query method call stack
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'2016-04-16 17:54:52[WARN] user: root
+/api/v1/events?from=1&per=30&comment_id=undefined&discussion_key=d6MH0Jfn
+N+1 Query detected
+  Discussion => [:current_motion]
+  Add to your finder: :includes => [:current_motion]
+N+1 Query method call stack
+  /root/dockku/loomio/app/serializers/discussion_serializer.rb:65:in `active_proposal'
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+
+/root/dockku/loomio/app/serializers/discussion_serializer.rb:65:in `active_proposal'
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'2016-04-16 17:54:52[WARN] user: root
+/api/v1/events?from=1&per=30&comment_id=undefined&discussion_key=d6MH0Jfn
+N+1 Query detected
+  Motion => [:outcome_author]
+  Add to your finder: :includes => [:outcome_author]
+N+1 Query method call stack
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'2016-04-16 17:54:52[WARN] user: root
+/api/v1/events?from=1&per=30&comment_id=undefined&discussion_key=d6MH0Jfn
+N+1 Query detected
+  Vote => [:user]
+  Add to your finder: :includes => [:user]
+N+1 Query method call stack
+  /root/dockku/loomio/app/serializers/event_serializer.rb:16:in `actor'
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+
+/root/dockku/loomio/app/serializers/event_serializer.rb:16:in `actor'
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'2016-04-16 17:54:52[WARN] user: root
+/api/v1/events?from=1&per=30&comment_id=undefined&discussion_key=d6MH0Jfn
+N+1 Query detected
+  Vote => [:motion]
+  Add to your finder: :includes => [:motion]
+N+1 Query method call stack
+  /root/dockku/loomio/app/models/vote.rb:25:in `discussion'
+  /root/dockku/loomio/app/serializers/event_serializer.rb:36:in `discussion'
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+
+/root/dockku/loomio/app/models/vote.rb:25:in `discussion'
+/root/dockku/loomio/app/serializers/event_serializer.rb:36:in `discussion'
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'2016-04-16 17:54:52[WARN] user: root
+/api/v1/events?from=1&per=30&comment_id=undefined&discussion_key=d6MH0Jfn
+Unused Eager Loading detected
+  Vote => [:previous_vote]
+  Remove from your finder: :includes => [:previous_vote]
+
+2016-04-16 17:54:52[WARN] user: root
+/api/v1/votes?motion_id=7
+Unused Eager Loading detected
+  Vote => [:previous_vote]
+  Remove from your finder: :includes => [:previous_vote]
+
+2016-04-16 17:55:59[WARN] user: root
+/d/d6MH0Jfn/ds
+N+1 Query detected
+  Membership => [:group]
+  Add to your finder: :includes => [:group]
+N+1 Query method call stack
+  /root/dockku/loomio/app/views/layouts/angular.html.haml:32:in `_app_views_layouts_angular_html_haml___2167553770895966426_47342115808900'
+  /root/dockku/loomio/app/helpers/angular_helper.rb:7:in `boot_angular_ui'
+  /root/dockku/loomio/app/helpers/time_zone_helper.rb:4:in `user_time_zone'
+
+/root/dockku/loomio/app/views/layouts/angular.html.haml:32:in `_app_views_layouts_angular_html_haml___2167553770895966426_47342115808900'
+/root/dockku/loomio/app/helpers/angular_helper.rb:7:in `boot_angular_ui'
+/root/dockku/loomio/app/helpers/time_zone_helper.rb:4:in `user_time_zone'2016-04-16 17:55:59[WARN] user: root
+/d/d6MH0Jfn/ds
+N+1 Query detected
+  Membership => [:user]
+  Add to your finder: :includes => [:user]
+N+1 Query method call stack
+  /root/dockku/loomio/app/views/layouts/angular.html.haml:32:in `_app_views_layouts_angular_html_haml___2167553770895966426_47342115808900'
+  /root/dockku/loomio/app/helpers/angular_helper.rb:7:in `boot_angular_ui'
+  /root/dockku/loomio/app/helpers/time_zone_helper.rb:4:in `user_time_zone'
+
+/root/dockku/loomio/app/views/layouts/angular.html.haml:32:in `_app_views_layouts_angular_html_haml___2167553770895966426_47342115808900'
+/root/dockku/loomio/app/helpers/angular_helper.rb:7:in `boot_angular_ui'
+/root/dockku/loomio/app/helpers/time_zone_helper.rb:4:in `user_time_zone'2016-04-16 17:55:59[WARN] user: root
+/d/d6MH0Jfn/ds
+N+1 Query detected
+  Membership => [:inviter]
+  Add to your finder: :includes => [:inviter]
+N+1 Query method call stack
+  /root/dockku/loomio/app/views/layouts/angular.html.haml:32:in `_app_views_layouts_angular_html_haml___2167553770895966426_47342115808900'
+  /root/dockku/loomio/app/helpers/angular_helper.rb:7:in `boot_angular_ui'
+  /root/dockku/loomio/app/helpers/time_zone_helper.rb:4:in `user_time_zone'
+
+/root/dockku/loomio/app/views/layouts/angular.html.haml:32:in `_app_views_layouts_angular_html_haml___2167553770895966426_47342115808900'
+/root/dockku/loomio/app/helpers/angular_helper.rb:7:in `boot_angular_ui'
+/root/dockku/loomio/app/helpers/time_zone_helper.rb:4:in `user_time_zone'2016-04-16 17:56:00[WARN] user: root
+/api/v1/discussions/inbox?from=0&per=100&since=Sat%20Mar%2005%202016%2000%3A00%3A00%20GMT%2B0800%20(SGT)&timeframe_for=last_activity_at
+N+1 Query detected
+  Group => [:subscription]
+  Add to your finder: :includes => [:subscription]
+N+1 Query method call stack
+  /root/dockku/loomio/app/serializers/group_serializer.rb:90:in `subscription'
+  /root/dockku/loomio/app/serializers/group_serializer.rb:50:in `subscription_kind'
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+  /root/dockku/loomio/app/controllers/api/discussions_controller.rb:21:in `inbox'
+
+/root/dockku/loomio/app/serializers/group_serializer.rb:90:in `subscription'
+/root/dockku/loomio/app/serializers/group_serializer.rb:50:in `subscription_kind'
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+/root/dockku/loomio/app/controllers/api/discussions_controller.rb:21:in `inbox'2016-04-16 17:56:01[WARN] user: root
+/api/v1/discussions/d6MH0Jfn
+Unused Eager Loading detected
+  Vote => [:previous_vote]
+  Remove from your finder: :includes => [:previous_vote]
+
+2016-04-16 17:56:02[WARN] user: root
+/api/v1/votes/my_votes?discussion_id=8
+N+1 Query detected
+  Motion => [:author]
+  Add to your finder: :includes => [:author]
+N+1 Query method call stack
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+  /root/dockku/loomio/app/controllers/api/votes_controller.rb:10:in `my_votes'
+
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+/root/dockku/loomio/app/controllers/api/votes_controller.rb:10:in `my_votes'2016-04-16 17:56:02[WARN] user: root
+/api/v1/votes/my_votes?discussion_id=8
+N+1 Query detected
+  Motion => [:outcome_author]
+  Add to your finder: :includes => [:outcome_author]
+N+1 Query method call stack
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+  /root/dockku/loomio/app/controllers/api/votes_controller.rb:10:in `my_votes'
+
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+/root/dockku/loomio/app/controllers/api/votes_controller.rb:10:in `my_votes'2016-04-16 17:56:02[WARN] user: root
+/api/v1/votes/my_votes?discussion_id=8
+Unused Eager Loading detected
+  Vote => [:previous_vote]
+  Remove from your finder: :includes => [:previous_vote]
+
+2016-04-16 17:56:02[WARN] user: root
+/api/v1/events?from=1&per=30&comment_id=undefined&discussion_key=d6MH0Jfn
+N+1 Query detected
+  Motion => [:author]
+  Add to your finder: :includes => [:author]
+N+1 Query method call stack
+  /root/dockku/loomio/app/models/motion.rb:80:in `user'
+  /root/dockku/loomio/app/serializers/event_serializer.rb:16:in `actor'
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+
+/root/dockku/loomio/app/models/motion.rb:80:in `user'
+/root/dockku/loomio/app/serializers/event_serializer.rb:16:in `actor'
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'2016-04-16 17:56:02[WARN] user: root
+/api/v1/events?from=1&per=30&comment_id=undefined&discussion_key=d6MH0Jfn
+N+1 Query detected
+  Motion => [:discussion]
+  Add to your finder: :includes => [:discussion]
+N+1 Query method call stack
+  /root/dockku/loomio/app/serializers/event_serializer.rb:36:in `discussion'
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+
+/root/dockku/loomio/app/serializers/event_serializer.rb:36:in `discussion'
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'2016-04-16 17:56:02[WARN] user: root
+/api/v1/events?from=1&per=30&comment_id=undefined&discussion_key=d6MH0Jfn
+N+1 Query detected
+  Discussion => [:author]
+  Add to your finder: :includes => [:author]
+N+1 Query method call stack
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'2016-04-16 17:56:02[WARN] user: root
+/api/v1/events?from=1&per=30&comment_id=undefined&discussion_key=d6MH0Jfn
+N+1 Query detected
+  Discussion => [:group]
+  Add to your finder: :includes => [:group]
+N+1 Query method call stack
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'2016-04-16 17:56:02[WARN] user: root
+/api/v1/events?from=1&per=30&comment_id=undefined&discussion_key=d6MH0Jfn
+N+1 Query detected
+  Discussion => [:current_motion]
+  Add to your finder: :includes => [:current_motion]
+N+1 Query method call stack
+  /root/dockku/loomio/app/serializers/discussion_serializer.rb:65:in `active_proposal'
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+
+/root/dockku/loomio/app/serializers/discussion_serializer.rb:65:in `active_proposal'
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'2016-04-16 17:56:02[WARN] user: root
+/api/v1/events?from=1&per=30&comment_id=undefined&discussion_key=d6MH0Jfn
+N+1 Query detected
+  Motion => [:outcome_author]
+  Add to your finder: :includes => [:outcome_author]
+N+1 Query method call stack
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'2016-04-16 17:56:02[WARN] user: root
+/api/v1/events?from=1&per=30&comment_id=undefined&discussion_key=d6MH0Jfn
+N+1 Query detected
+  Vote => [:user]
+  Add to your finder: :includes => [:user]
+N+1 Query method call stack
+  /root/dockku/loomio/app/serializers/event_serializer.rb:16:in `actor'
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+
+/root/dockku/loomio/app/serializers/event_serializer.rb:16:in `actor'
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'2016-04-16 17:56:02[WARN] user: root
+/api/v1/events?from=1&per=30&comment_id=undefined&discussion_key=d6MH0Jfn
+N+1 Query detected
+  Vote => [:motion]
+  Add to your finder: :includes => [:motion]
+N+1 Query method call stack
+  /root/dockku/loomio/app/models/vote.rb:25:in `discussion'
+  /root/dockku/loomio/app/serializers/event_serializer.rb:36:in `discussion'
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+
+/root/dockku/loomio/app/models/vote.rb:25:in `discussion'
+/root/dockku/loomio/app/serializers/event_serializer.rb:36:in `discussion'
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'2016-04-16 17:56:02[WARN] user: root
+/api/v1/events?from=1&per=30&comment_id=undefined&discussion_key=d6MH0Jfn
+Unused Eager Loading detected
+  Vote => [:previous_vote]
+  Remove from your finder: :includes => [:previous_vote]
+
+2016-04-16 17:56:02[WARN] user: root
+/api/v1/proposals?discussion_key=d6MH0Jfn
+N+1 Query detected
+  Motion => [:author]
+  Add to your finder: :includes => [:author]
+N+1 Query method call stack
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+  /root/dockku/loomio/app/controllers/api/motions_controller.rb:33:in `index'
+
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+/root/dockku/loomio/app/controllers/api/motions_controller.rb:33:in `index'2016-04-16 17:56:02[WARN] user: root
+/api/v1/proposals?discussion_key=d6MH0Jfn
+N+1 Query detected
+  Motion => [:outcome_author]
+  Add to your finder: :includes => [:outcome_author]
+N+1 Query method call stack
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+  /root/dockku/loomio/app/controllers/api/motions_controller.rb:33:in `index'
+
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+/root/dockku/loomio/app/controllers/api/motions_controller.rb:33:in `index'2016-04-16 17:56:02[WARN] user: root
+/api/v1/votes?motion_id=7
+Unused Eager Loading detected
+  Vote => [:previous_vote]
+  Remove from your finder: :includes => [:previous_vote]
+
+2016-04-16 18:45:44[WARN] user: root
+/dashboard
+N+1 Query detected
+  Membership => [:group]
+  Add to your finder: :includes => [:group]
+N+1 Query method call stack
+  /root/dockku/loomio/app/views/layouts/angular.html.haml:32:in `_app_views_layouts_angular_html_haml__1168827792227749610_47127605180660'
+  /root/dockku/loomio/app/helpers/angular_helper.rb:7:in `boot_angular_ui'
+  /root/dockku/loomio/app/helpers/time_zone_helper.rb:4:in `user_time_zone'
+
+/root/dockku/loomio/app/views/layouts/angular.html.haml:32:in `_app_views_layouts_angular_html_haml__1168827792227749610_47127605180660'
+/root/dockku/loomio/app/helpers/angular_helper.rb:7:in `boot_angular_ui'
+/root/dockku/loomio/app/helpers/time_zone_helper.rb:4:in `user_time_zone'2016-04-16 18:45:44[WARN] user: root
+/dashboard
+N+1 Query detected
+  Membership => [:user]
+  Add to your finder: :includes => [:user]
+N+1 Query method call stack
+  /root/dockku/loomio/app/views/layouts/angular.html.haml:32:in `_app_views_layouts_angular_html_haml__1168827792227749610_47127605180660'
+  /root/dockku/loomio/app/helpers/angular_helper.rb:7:in `boot_angular_ui'
+  /root/dockku/loomio/app/helpers/time_zone_helper.rb:4:in `user_time_zone'
+
+/root/dockku/loomio/app/views/layouts/angular.html.haml:32:in `_app_views_layouts_angular_html_haml__1168827792227749610_47127605180660'
+/root/dockku/loomio/app/helpers/angular_helper.rb:7:in `boot_angular_ui'
+/root/dockku/loomio/app/helpers/time_zone_helper.rb:4:in `user_time_zone'2016-04-16 18:45:44[WARN] user: root
+/dashboard
+N+1 Query detected
+  Membership => [:inviter]
+  Add to your finder: :includes => [:inviter]
+N+1 Query method call stack
+  /root/dockku/loomio/app/views/layouts/angular.html.haml:32:in `_app_views_layouts_angular_html_haml__1168827792227749610_47127605180660'
+  /root/dockku/loomio/app/helpers/angular_helper.rb:7:in `boot_angular_ui'
+  /root/dockku/loomio/app/helpers/time_zone_helper.rb:4:in `user_time_zone'
+
+/root/dockku/loomio/app/views/layouts/angular.html.haml:32:in `_app_views_layouts_angular_html_haml__1168827792227749610_47127605180660'
+/root/dockku/loomio/app/helpers/angular_helper.rb:7:in `boot_angular_ui'
+/root/dockku/loomio/app/helpers/time_zone_helper.rb:4:in `user_time_zone'2016-04-16 18:45:45[WARN] user: root
+/api/v1/discussions/inbox?from=0&per=100&since=Sun%20Mar%2006%202016%2000%3A00%3A00%20GMT%2B0800%20(SGT)&timeframe_for=last_activity_at
+N+1 Query detected
+  Group => [:subscription]
+  Add to your finder: :includes => [:subscription]
+N+1 Query method call stack
+  /root/dockku/loomio/app/serializers/group_serializer.rb:90:in `subscription'
+  /root/dockku/loomio/app/serializers/group_serializer.rb:50:in `subscription_kind'
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+  /root/dockku/loomio/app/controllers/api/discussions_controller.rb:21:in `inbox'
+
+/root/dockku/loomio/app/serializers/group_serializer.rb:90:in `subscription'
+/root/dockku/loomio/app/serializers/group_serializer.rb:50:in `subscription_kind'
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+/root/dockku/loomio/app/controllers/api/discussions_controller.rb:21:in `inbox'2016-04-16 18:45:45[WARN] user: root
+/api/v1/discussions/dashboard?filter=show_all&from=0&per=50
+N+1 Query detected
+  Group => [:subscription]
+  Add to your finder: :includes => [:subscription]
+N+1 Query method call stack
+  /root/dockku/loomio/app/serializers/group_serializer.rb:90:in `subscription'
+  /root/dockku/loomio/app/serializers/group_serializer.rb:50:in `subscription_kind'
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+  /root/dockku/loomio/app/controllers/api/discussions_controller.rb:15:in `dashboard'
+
+/root/dockku/loomio/app/serializers/group_serializer.rb:90:in `subscription'
+/root/dockku/loomio/app/serializers/group_serializer.rb:50:in `subscription_kind'
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+/root/dockku/loomio/app/controllers/api/discussions_controller.rb:15:in `dashboard'2016-04-16 18:45:45[WARN] user: root
+/api/v1/discussions/dashboard?filter=show_all&from=0&per=50
+N+1 Query detected
+  Motion => [:discussion]
+  Add to your finder: :includes => [:discussion]
+N+1 Query method call stack
+  /root/dockku/loomio/app/models/motion.rb:37:in `group_id'
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+  /root/dockku/loomio/app/controllers/api/discussions_controller.rb:15:in `dashboard'
+
+/root/dockku/loomio/app/models/motion.rb:37:in `group_id'
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+/root/dockku/loomio/app/controllers/api/discussions_controller.rb:15:in `dashboard'2016-04-16 18:45:45[WARN] user: root
+/api/v1/discussions/dashboard?filter=show_all&from=0&per=50
+Unused Eager Loading detected
+  Vote => [:previous_vote]
+  Remove from your finder: :includes => [:previous_vote]
+
+2016-04-16 18:46:05[WARN] user: root
+/api/v1/groups
+Unused Eager Loading detected
+  Event => [:user]
+  Remove from your finder: :includes => [:user]
+
+2016-04-16 18:46:23[WARN] user: root
+/api/v1/proposals
+N+1 Query detected
+  Discussion => [:current_motion]
+  Add to your finder: :includes => [:current_motion]
+N+1 Query method call stack
+  /root/dockku/loomio/app/models/discussion.rb:144:in `motion_can_be_raised?'
+  /root/dockku/loomio/app/models/ability.rb:247:in `block in initialize'
+  /root/dockku/loomio/app/services/motion_service.rb:4:in `create'
+  /root/dockku/loomio/app/controllers/api/restful_controller.rb:11:in `create_action'
+
+/root/dockku/loomio/app/models/discussion.rb:144:in `motion_can_be_raised?'
+/root/dockku/loomio/app/models/ability.rb:247:in `block in initialize'
+/root/dockku/loomio/app/services/motion_service.rb:4:in `create'
+/root/dockku/loomio/app/controllers/api/restful_controller.rb:11:in `create_action'2016-04-16 18:46:23[WARN] user: root
+/api/v1/proposals
+N+1 Query detected
+  Discussion => [:group]
+  Add to your finder: :includes => [:group]
+N+1 Query method call stack
+  /root/dockku/loomio/app/models/ability.rb:248:in `block in initialize'
+  /root/dockku/loomio/app/services/motion_service.rb:4:in `create'
+  /root/dockku/loomio/app/controllers/api/restful_controller.rb:11:in `create_action'
+
+/root/dockku/loomio/app/models/ability.rb:248:in `block in initialize'
+/root/dockku/loomio/app/services/motion_service.rb:4:in `create'
+/root/dockku/loomio/app/controllers/api/restful_controller.rb:11:in `create_action'2016-04-16 18:46:23[WARN] user: root
+/api/v1/proposals
+Unused Eager Loading detected
+  Event => [:user]
+  Remove from your finder: :includes => [:user]
+
+2016-04-16 18:46:36[WARN] user: root
+/api/v1/discussions?from=0&per=25&group_id=OHuUn8Ii
+N+1 Query detected
+  Motion => [:discussion]
+  Add to your finder: :includes => [:discussion]
+N+1 Query method call stack
+  /root/dockku/loomio/app/models/motion.rb:37:in `group_id'
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+  /root/dockku/loomio/app/controllers/api/discussions_controller.rb:9:in `index'
+
+/root/dockku/loomio/app/models/motion.rb:37:in `group_id'
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+/root/dockku/loomio/app/controllers/api/discussions_controller.rb:9:in `index'2016-04-16 18:47:24[WARN] user: root
+/api/v1/discussions?from=0&per=25&group_id=OHuUn8Ii
+N+1 Query detected
+  Motion => [:discussion]
+  Add to your finder: :includes => [:discussion]
+N+1 Query method call stack
+  /root/dockku/loomio/app/models/motion.rb:37:in `group_id'
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+  /root/dockku/loomio/app/controllers/api/discussions_controller.rb:9:in `index'
+
+/root/dockku/loomio/app/models/motion.rb:37:in `group_id'
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+/root/dockku/loomio/app/controllers/api/discussions_controller.rb:9:in `index'2016-04-16 18:47:30[WARN] user: root
+/api/v1/membership_requests
+N+1 Query detected
+  MembershipRequest => [:group]
+  Add to your finder: :includes => [:group]
+N+1 Query method call stack
+  /root/dockku/loomio/app/mailers/group_mailer.rb:4:in `new_membership_request'
+  /root/dockku/loomio/app/models/events/membership_requested.rb:16:in `notify_users!'
+  /root/dockku/loomio/app/models/events/membership_requested.rb:5:in `publish!'
+  /root/dockku/loomio/app/services/membership_request_service.rb:9:in `create'
+  /root/dockku/loomio/app/controllers/api/restful_controller.rb:11:in `create_action'
+
+/root/dockku/loomio/app/mailers/group_mailer.rb:4:in `new_membership_request'
+/root/dockku/loomio/app/models/events/membership_requested.rb:16:in `notify_users!'
+/root/dockku/loomio/app/models/events/membership_requested.rb:5:in `publish!'
+/root/dockku/loomio/app/services/membership_request_service.rb:9:in `create'
+/root/dockku/loomio/app/controllers/api/restful_controller.rb:11:in `create_action'2016-04-16 18:48:10[WARN] user: root
+/g/OHuUn8Ii/fds
+N+1 Query detected
+  Membership => [:group]
+  Add to your finder: :includes => [:group]
+N+1 Query method call stack
+  /root/dockku/loomio/app/views/layouts/angular.html.haml:32:in `_app_views_layouts_angular_html_haml__1168827792227749610_47127605180660'
+  /root/dockku/loomio/app/helpers/angular_helper.rb:7:in `boot_angular_ui'
+  /root/dockku/loomio/app/helpers/time_zone_helper.rb:4:in `user_time_zone'
+
+/root/dockku/loomio/app/views/layouts/angular.html.haml:32:in `_app_views_layouts_angular_html_haml__1168827792227749610_47127605180660'
+/root/dockku/loomio/app/helpers/angular_helper.rb:7:in `boot_angular_ui'
+/root/dockku/loomio/app/helpers/time_zone_helper.rb:4:in `user_time_zone'2016-04-16 18:48:10[WARN] user: root
+/g/OHuUn8Ii/fds
+N+1 Query detected
+  Membership => [:user]
+  Add to your finder: :includes => [:user]
+N+1 Query method call stack
+  /root/dockku/loomio/app/views/layouts/angular.html.haml:32:in `_app_views_layouts_angular_html_haml__1168827792227749610_47127605180660'
+  /root/dockku/loomio/app/helpers/angular_helper.rb:7:in `boot_angular_ui'
+  /root/dockku/loomio/app/helpers/time_zone_helper.rb:4:in `user_time_zone'
+
+/root/dockku/loomio/app/views/layouts/angular.html.haml:32:in `_app_views_layouts_angular_html_haml__1168827792227749610_47127605180660'
+/root/dockku/loomio/app/helpers/angular_helper.rb:7:in `boot_angular_ui'
+/root/dockku/loomio/app/helpers/time_zone_helper.rb:4:in `user_time_zone'2016-04-16 18:48:10[WARN] user: root
+/g/OHuUn8Ii/fds
+N+1 Query detected
+  Membership => [:inviter]
+  Add to your finder: :includes => [:inviter]
+N+1 Query method call stack
+  /root/dockku/loomio/app/views/layouts/angular.html.haml:32:in `_app_views_layouts_angular_html_haml__1168827792227749610_47127605180660'
+  /root/dockku/loomio/app/helpers/angular_helper.rb:7:in `boot_angular_ui'
+  /root/dockku/loomio/app/helpers/time_zone_helper.rb:4:in `user_time_zone'
+
+/root/dockku/loomio/app/views/layouts/angular.html.haml:32:in `_app_views_layouts_angular_html_haml__1168827792227749610_47127605180660'
+/root/dockku/loomio/app/helpers/angular_helper.rb:7:in `boot_angular_ui'
+/root/dockku/loomio/app/helpers/time_zone_helper.rb:4:in `user_time_zone'2016-04-16 18:48:11[WARN] user: root
+/api/v1/discussions/inbox?from=0&per=100&since=Sun%20Mar%2006%202016%2000%3A00%3A00%20GMT%2B0800%20(SGT)&timeframe_for=last_activity_at
+N+1 Query detected
+  Group => [:subscription]
+  Add to your finder: :includes => [:subscription]
+N+1 Query method call stack
+  /root/dockku/loomio/app/serializers/group_serializer.rb:90:in `subscription'
+  /root/dockku/loomio/app/serializers/group_serializer.rb:50:in `subscription_kind'
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+  /root/dockku/loomio/app/controllers/api/discussions_controller.rb:21:in `inbox'
+
+/root/dockku/loomio/app/serializers/group_serializer.rb:90:in `subscription'
+/root/dockku/loomio/app/serializers/group_serializer.rb:50:in `subscription_kind'
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+/root/dockku/loomio/app/controllers/api/discussions_controller.rb:21:in `inbox'2016-04-16 18:48:11[WARN] user: root
+/api/v1/discussions/inbox?from=0&per=100&since=Sun%20Mar%2006%202016%2000%3A00%3A00%20GMT%2B0800%20(SGT)&timeframe_for=last_activity_at
+N+1 Query detected
+  Motion => [:discussion]
+  Add to your finder: :includes => [:discussion]
+N+1 Query method call stack
+  /root/dockku/loomio/app/models/motion.rb:37:in `group_id'
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+  /root/dockku/loomio/app/controllers/api/discussions_controller.rb:21:in `inbox'
+
+/root/dockku/loomio/app/models/motion.rb:37:in `group_id'
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+/root/dockku/loomio/app/controllers/api/discussions_controller.rb:21:in `inbox'2016-04-16 18:48:12[WARN] user: root
+/api/v1/discussions?from=0&per=25&group_id=OHuUn8Ii
+N+1 Query detected
+  Motion => [:discussion]
+  Add to your finder: :includes => [:discussion]
+N+1 Query method call stack
+  /root/dockku/loomio/app/models/motion.rb:37:in `group_id'
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+  /root/dockku/loomio/app/controllers/api/discussions_controller.rb:9:in `index'
+
+/root/dockku/loomio/app/models/motion.rb:37:in `group_id'
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+/root/dockku/loomio/app/controllers/api/discussions_controller.rb:9:in `index'2016-04-16 18:48:36[WARN] user: root
+/api/v1/discussions/inbox?from=0&per=100&since=Sun%20Mar%2006%202016%2000%3A00%3A00%20GMT%2B0800%20(SGT)&timeframe_for=last_activity_at
+N+1 Query detected
+  Motion => [:discussion]
+  Add to your finder: :includes => [:discussion]
+N+1 Query method call stack
+  /root/dockku/loomio/app/models/motion.rb:37:in `group_id'
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+  /root/dockku/loomio/app/controllers/api/discussions_controller.rb:21:in `inbox'
+
+/root/dockku/loomio/app/models/motion.rb:37:in `group_id'
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+/root/dockku/loomio/app/controllers/api/discussions_controller.rb:21:in `inbox'2016-04-16 18:48:38[WARN] user: root
+/api/v1/discussions?from=0&per=25&group_id=OHuUn8Ii
+N+1 Query detected
+  Motion => [:discussion]
+  Add to your finder: :includes => [:discussion]
+N+1 Query method call stack
+  /root/dockku/loomio/app/models/motion.rb:37:in `group_id'
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+  /root/dockku/loomio/app/controllers/api/discussions_controller.rb:9:in `index'
+
+/root/dockku/loomio/app/models/motion.rb:37:in `group_id'
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+/root/dockku/loomio/app/controllers/api/discussions_controller.rb:9:in `index'2016-04-16 18:48:43[WARN] user: root
+/api/v1/discussions/6bjVHXJ9/mark_as_read
+Unused Eager Loading detected
+  Event => [:user]
+  Remove from your finder: :includes => [:user]
+
+2016-04-16 19:09:48[WARN] user: root
+/d/d6MH0Jfn/ds
+N+1 Query detected
+  Membership => [:group]
+  Add to your finder: :includes => [:group]
+N+1 Query method call stack
+  /root/dockku/loomio/app/views/layouts/angular.html.haml:32:in `_app_views_layouts_angular_html_haml__1624133673905124783_47056602967720'
+  /root/dockku/loomio/app/helpers/angular_helper.rb:7:in `boot_angular_ui'
+  /root/dockku/loomio/app/helpers/time_zone_helper.rb:4:in `user_time_zone'
+
+/root/dockku/loomio/app/views/layouts/angular.html.haml:32:in `_app_views_layouts_angular_html_haml__1624133673905124783_47056602967720'
+/root/dockku/loomio/app/helpers/angular_helper.rb:7:in `boot_angular_ui'
+/root/dockku/loomio/app/helpers/time_zone_helper.rb:4:in `user_time_zone'2016-04-16 19:09:48[WARN] user: root
+/d/d6MH0Jfn/ds
+N+1 Query detected
+  Membership => [:user]
+  Add to your finder: :includes => [:user]
+N+1 Query method call stack
+  /root/dockku/loomio/app/views/layouts/angular.html.haml:32:in `_app_views_layouts_angular_html_haml__1624133673905124783_47056602967720'
+  /root/dockku/loomio/app/helpers/angular_helper.rb:7:in `boot_angular_ui'
+  /root/dockku/loomio/app/helpers/time_zone_helper.rb:4:in `user_time_zone'
+
+/root/dockku/loomio/app/views/layouts/angular.html.haml:32:in `_app_views_layouts_angular_html_haml__1624133673905124783_47056602967720'
+/root/dockku/loomio/app/helpers/angular_helper.rb:7:in `boot_angular_ui'
+/root/dockku/loomio/app/helpers/time_zone_helper.rb:4:in `user_time_zone'2016-04-16 19:09:48[WARN] user: root
+/d/d6MH0Jfn/ds
+N+1 Query detected
+  Membership => [:inviter]
+  Add to your finder: :includes => [:inviter]
+N+1 Query method call stack
+  /root/dockku/loomio/app/views/layouts/angular.html.haml:32:in `_app_views_layouts_angular_html_haml__1624133673905124783_47056602967720'
+  /root/dockku/loomio/app/helpers/angular_helper.rb:7:in `boot_angular_ui'
+  /root/dockku/loomio/app/helpers/time_zone_helper.rb:4:in `user_time_zone'
+
+/root/dockku/loomio/app/views/layouts/angular.html.haml:32:in `_app_views_layouts_angular_html_haml__1624133673905124783_47056602967720'
+/root/dockku/loomio/app/helpers/angular_helper.rb:7:in `boot_angular_ui'
+/root/dockku/loomio/app/helpers/time_zone_helper.rb:4:in `user_time_zone'2016-04-16 19:09:49[WARN] user: root
+/api/v1/discussions/inbox?from=0&per=100&since=Sun%20Mar%2006%202016%2000%3A00%3A00%20GMT%2B0800%20(SGT)&timeframe_for=last_activity_at
+N+1 Query detected
+  Group => [:subscription]
+  Add to your finder: :includes => [:subscription]
+N+1 Query method call stack
+  /root/dockku/loomio/app/serializers/group_serializer.rb:90:in `subscription'
+  /root/dockku/loomio/app/serializers/group_serializer.rb:50:in `subscription_kind'
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+  /root/dockku/loomio/app/controllers/api/discussions_controller.rb:21:in `inbox'
+
+/root/dockku/loomio/app/serializers/group_serializer.rb:90:in `subscription'
+/root/dockku/loomio/app/serializers/group_serializer.rb:50:in `subscription_kind'
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+/root/dockku/loomio/app/controllers/api/discussions_controller.rb:21:in `inbox'2016-04-16 19:09:49[WARN] user: root
+/api/v1/discussions/inbox?from=0&per=100&since=Sun%20Mar%2006%202016%2000%3A00%3A00%20GMT%2B0800%20(SGT)&timeframe_for=last_activity_at
+N+1 Query detected
+  Motion => [:discussion]
+  Add to your finder: :includes => [:discussion]
+N+1 Query method call stack
+  /root/dockku/loomio/app/models/motion.rb:37:in `group_id'
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+  /root/dockku/loomio/app/controllers/api/discussions_controller.rb:21:in `inbox'
+
+/root/dockku/loomio/app/models/motion.rb:37:in `group_id'
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+/root/dockku/loomio/app/controllers/api/discussions_controller.rb:21:in `inbox'2016-04-16 19:09:49[WARN] user: root
+/api/v1/discussions/d6MH0Jfn
+Unused Eager Loading detected
+  Vote => [:previous_vote]
+  Remove from your finder: :includes => [:previous_vote]
+
+2016-04-16 19:09:50[WARN] user: root
+/api/v1/proposals?discussion_key=d6MH0Jfn
+N+1 Query detected
+  Motion => [:author]
+  Add to your finder: :includes => [:author]
+N+1 Query method call stack
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+  /root/dockku/loomio/app/controllers/api/motions_controller.rb:33:in `index'
+
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+/root/dockku/loomio/app/controllers/api/motions_controller.rb:33:in `index'2016-04-16 19:09:50[WARN] user: root
+/api/v1/proposals?discussion_key=d6MH0Jfn
+N+1 Query detected
+  Motion => [:outcome_author]
+  Add to your finder: :includes => [:outcome_author]
+N+1 Query method call stack
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+  /root/dockku/loomio/app/controllers/api/motions_controller.rb:33:in `index'
+
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+/root/dockku/loomio/app/controllers/api/motions_controller.rb:33:in `index'2016-04-16 19:09:50[WARN] user: root
+/api/v1/events?from=1&per=30&comment_id=undefined&discussion_key=d6MH0Jfn
+N+1 Query detected
+  Motion => [:author]
+  Add to your finder: :includes => [:author]
+N+1 Query method call stack
+  /root/dockku/loomio/app/models/motion.rb:80:in `user'
+  /root/dockku/loomio/app/serializers/event_serializer.rb:16:in `actor'
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+
+/root/dockku/loomio/app/models/motion.rb:80:in `user'
+/root/dockku/loomio/app/serializers/event_serializer.rb:16:in `actor'
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'2016-04-16 19:09:50[WARN] user: root
+/api/v1/events?from=1&per=30&comment_id=undefined&discussion_key=d6MH0Jfn
+N+1 Query detected
+  Motion => [:discussion]
+  Add to your finder: :includes => [:discussion]
+N+1 Query method call stack
+  /root/dockku/loomio/app/serializers/event_serializer.rb:36:in `discussion'
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+
+/root/dockku/loomio/app/serializers/event_serializer.rb:36:in `discussion'
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'2016-04-16 19:09:50[WARN] user: root
+/api/v1/events?from=1&per=30&comment_id=undefined&discussion_key=d6MH0Jfn
+N+1 Query detected
+  Discussion => [:author]
+  Add to your finder: :includes => [:author]
+N+1 Query method call stack
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'2016-04-16 19:09:50[WARN] user: root
+/api/v1/events?from=1&per=30&comment_id=undefined&discussion_key=d6MH0Jfn
+N+1 Query detected
+  Discussion => [:group]
+  Add to your finder: :includes => [:group]
+N+1 Query method call stack
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'2016-04-16 19:09:50[WARN] user: root
+/api/v1/events?from=1&per=30&comment_id=undefined&discussion_key=d6MH0Jfn
+N+1 Query detected
+  Discussion => [:current_motion]
+  Add to your finder: :includes => [:current_motion]
+N+1 Query method call stack
+  /root/dockku/loomio/app/serializers/discussion_serializer.rb:65:in `active_proposal'
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+
+/root/dockku/loomio/app/serializers/discussion_serializer.rb:65:in `active_proposal'
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'2016-04-16 19:09:50[WARN] user: root
+/api/v1/events?from=1&per=30&comment_id=undefined&discussion_key=d6MH0Jfn
+N+1 Query detected
+  Motion => [:outcome_author]
+  Add to your finder: :includes => [:outcome_author]
+N+1 Query method call stack
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'2016-04-16 19:09:50[WARN] user: root
+/api/v1/events?from=1&per=30&comment_id=undefined&discussion_key=d6MH0Jfn
+N+1 Query detected
+  Vote => [:user]
+  Add to your finder: :includes => [:user]
+N+1 Query method call stack
+  /root/dockku/loomio/app/serializers/event_serializer.rb:16:in `actor'
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+
+/root/dockku/loomio/app/serializers/event_serializer.rb:16:in `actor'
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'2016-04-16 19:09:50[WARN] user: root
+/api/v1/events?from=1&per=30&comment_id=undefined&discussion_key=d6MH0Jfn
+N+1 Query detected
+  Vote => [:motion]
+  Add to your finder: :includes => [:motion]
+N+1 Query method call stack
+  /root/dockku/loomio/app/models/vote.rb:25:in `discussion'
+  /root/dockku/loomio/app/serializers/event_serializer.rb:36:in `discussion'
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+
+/root/dockku/loomio/app/models/vote.rb:25:in `discussion'
+/root/dockku/loomio/app/serializers/event_serializer.rb:36:in `discussion'
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'2016-04-16 19:09:50[WARN] user: root
+/api/v1/events?from=1&per=30&comment_id=undefined&discussion_key=d6MH0Jfn
+Unused Eager Loading detected
+  Vote => [:previous_vote]
+  Remove from your finder: :includes => [:previous_vote]
+
+2016-04-16 19:09:50[WARN] user: root
+/api/v1/votes?motion_id=7
+Unused Eager Loading detected
+  Vote => [:previous_vote]
+  Remove from your finder: :includes => [:previous_vote]
+
+2016-04-16 19:09:50[WARN] user: root
+/api/v1/votes/my_votes?discussion_id=8
+N+1 Query detected
+  Motion => [:author]
+  Add to your finder: :includes => [:author]
+N+1 Query method call stack
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+  /root/dockku/loomio/app/controllers/api/votes_controller.rb:10:in `my_votes'
+
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+/root/dockku/loomio/app/controllers/api/votes_controller.rb:10:in `my_votes'2016-04-16 19:09:50[WARN] user: root
+/api/v1/votes/my_votes?discussion_id=8
+N+1 Query detected
+  Motion => [:outcome_author]
+  Add to your finder: :includes => [:outcome_author]
+N+1 Query method call stack
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+  /root/dockku/loomio/app/controllers/api/votes_controller.rb:10:in `my_votes'
+
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+/root/dockku/loomio/app/controllers/api/votes_controller.rb:10:in `my_votes'2016-04-16 19:09:50[WARN] user: root
+/api/v1/votes/my_votes?discussion_id=8
+Unused Eager Loading detected
+  Vote => [:previous_vote]
+  Remove from your finder: :includes => [:previous_vote]
+
+2016-04-16 19:10:14[WARN] user: root
+/api/v1/discussions?from=0&per=25&group_id=eR0OFh9G
+N+1 Query detected
+  Motion => [:discussion]
+  Add to your finder: :includes => [:discussion]
+N+1 Query method call stack
+  /root/dockku/loomio/app/models/motion.rb:37:in `group_id'
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+  /root/dockku/loomio/app/controllers/api/discussions_controller.rb:9:in `index'
+
+/root/dockku/loomio/app/models/motion.rb:37:in `group_id'
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+/root/dockku/loomio/app/controllers/api/discussions_controller.rb:9:in `index'2016-04-16 19:10:15[WARN] user: root
+/api/v1/proposals/closed?group_key=eR0OFh9G
+Unused Eager Loading detected
+  Vote => [:previous_vote]
+  Remove from your finder: :includes => [:previous_vote]
+
+2016-04-16 19:10:17[WARN] user: root
+/api/v1/votes/my_votes?group_id=6
+Unused Eager Loading detected
+  Vote => [:previous_vote]
+  Remove from your finder: :includes => [:previous_vote]
+
+2016-04-16 19:10:39[WARN] user: root
+/api/v1/discussions?from=0&per=25&group_id=OHuUn8Ii
+N+1 Query detected
+  Motion => [:discussion]
+  Add to your finder: :includes => [:discussion]
+N+1 Query method call stack
+  /root/dockku/loomio/app/models/motion.rb:37:in `group_id'
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+  /root/dockku/loomio/app/controllers/api/discussions_controller.rb:9:in `index'
+
+/root/dockku/loomio/app/models/motion.rb:37:in `group_id'
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+/root/dockku/loomio/app/controllers/api/discussions_controller.rb:9:in `index'2016-04-16 19:14:23[WARN] user: root
+/api/v1/discussions/8l5iaRSO/mark_as_read
+Unused Eager Loading detected
+  Event => [:user]
+  Remove from your finder: :includes => [:user]
+
+2016-04-16 19:14:36[WARN] user: root
+/api/v1/discussions?from=0&per=25&group_id=eR0OFh9G
+N+1 Query detected
+  Motion => [:discussion]
+  Add to your finder: :includes => [:discussion]
+N+1 Query method call stack
+  /root/dockku/loomio/app/models/motion.rb:37:in `group_id'
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+  /root/dockku/loomio/app/controllers/api/discussions_controller.rb:9:in `index'
+
+/root/dockku/loomio/app/models/motion.rb:37:in `group_id'
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+/root/dockku/loomio/app/controllers/api/discussions_controller.rb:9:in `index'2016-04-16 19:14:36[WARN] user: root
+/api/v1/proposals/closed?group_key=eR0OFh9G
+Unused Eager Loading detected
+  Vote => [:previous_vote]
+  Remove from your finder: :includes => [:previous_vote]
+
+2016-04-16 19:14:37[WARN] user: root
+/api/v1/votes/my_votes?group_id=6
+Unused Eager Loading detected
+  Vote => [:previous_vote]
+  Remove from your finder: :includes => [:previous_vote]
+
+2016-04-16 19:14:40[WARN] user: root
+/api/v1/votes/my_votes?discussion_id=11
+Unused Eager Loading detected
+  Vote => [:previous_vote]
+  Remove from your finder: :includes => [:previous_vote]
+
+2016-04-16 19:14:40[WARN] user: root
+/api/v1/proposals?discussion_key=ZXISlvoG
+N+1 Query detected
+  Motion => [:author]
+  Add to your finder: :includes => [:author]
+N+1 Query method call stack
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+  /root/dockku/loomio/app/controllers/api/motions_controller.rb:33:in `index'
+
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+/root/dockku/loomio/app/controllers/api/motions_controller.rb:33:in `index'2016-04-16 19:14:40[WARN] user: root
+/api/v1/proposals?discussion_key=ZXISlvoG
+N+1 Query detected
+  Motion => [:outcome_author]
+  Add to your finder: :includes => [:outcome_author]
+N+1 Query method call stack
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+  /root/dockku/loomio/app/controllers/api/motions_controller.rb:33:in `index'
+
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+/root/dockku/loomio/app/controllers/api/motions_controller.rb:33:in `index'2016-04-16 19:14:40[WARN] user: root
+/api/v1/events?from=1&per=30&comment_id=undefined&discussion_key=ZXISlvoG
+N+1 Query detected
+  Motion => [:author]
+  Add to your finder: :includes => [:author]
+N+1 Query method call stack
+  /root/dockku/loomio/app/models/motion.rb:80:in `user'
+  /root/dockku/loomio/app/serializers/event_serializer.rb:16:in `actor'
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+
+/root/dockku/loomio/app/models/motion.rb:80:in `user'
+/root/dockku/loomio/app/serializers/event_serializer.rb:16:in `actor'
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'2016-04-16 19:14:40[WARN] user: root
+/api/v1/events?from=1&per=30&comment_id=undefined&discussion_key=ZXISlvoG
+N+1 Query detected
+  Motion => [:discussion]
+  Add to your finder: :includes => [:discussion]
+N+1 Query method call stack
+  /root/dockku/loomio/app/serializers/event_serializer.rb:36:in `discussion'
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+
+/root/dockku/loomio/app/serializers/event_serializer.rb:36:in `discussion'
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'2016-04-16 19:14:40[WARN] user: root
+/api/v1/events?from=1&per=30&comment_id=undefined&discussion_key=ZXISlvoG
+N+1 Query detected
+  Discussion => [:author]
+  Add to your finder: :includes => [:author]
+N+1 Query method call stack
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'2016-04-16 19:14:40[WARN] user: root
+/api/v1/events?from=1&per=30&comment_id=undefined&discussion_key=ZXISlvoG
+N+1 Query detected
+  Discussion => [:group]
+  Add to your finder: :includes => [:group]
+N+1 Query method call stack
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'2016-04-16 19:14:40[WARN] user: root
+/api/v1/events?from=1&per=30&comment_id=undefined&discussion_key=ZXISlvoG
+N+1 Query detected
+  Discussion => [:current_motion]
+  Add to your finder: :includes => [:current_motion]
+N+1 Query method call stack
+  /root/dockku/loomio/app/serializers/discussion_serializer.rb:65:in `active_proposal'
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+
+/root/dockku/loomio/app/serializers/discussion_serializer.rb:65:in `active_proposal'
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'2016-04-16 19:14:40[WARN] user: root
+/api/v1/events?from=1&per=30&comment_id=undefined&discussion_key=ZXISlvoG
+N+1 Query detected
+  Motion => [:outcome_author]
+  Add to your finder: :includes => [:outcome_author]
+N+1 Query method call stack
+  /root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'
+
+/root/dockku/loomio/app/helpers/uses_discussion_readers.rb:8:in `respond_with_collection'2016-04-16 19:14:40[WARN] user: root
+/api/v1/events?from=1&per=30&comment_id=undefined&discussion_key=ZXISlvoG
+Unused Eager Loading detected
+  Vote => [:previous_vote]
+  Remove from your finder: :includes => [:previous_vote]
+

@@ -1,0 +1,123 @@
+I"ç(function() {
+  $(function() {
+    $('#product-carousel').carousel('pause');
+    $('#threads').on('click', function() {
+      return $('#product-carousel').carousel(0);
+    });
+    $('#weaving').on('click', function() {
+      return $('#product-carousel').carousel(1);
+    });
+    $('#braid').on('click', function() {
+      return $('#product-carousel').carousel(2);
+    });
+    $('.carousel-inner').on('click', function() {
+      return $('#product-carousel').carousel('next');
+    });
+  });
+
+  $(function() {
+    $('#prototype-carousel').carousel('pause');
+    $('#genzero').on('click', function() {
+      return $('#prototype-carousel').carousel(0);
+    });
+    $('#pathways').on('click', function() {
+      return $('#prototype-carousel').carousel(1);
+    });
+    $('#timebank').on('click', function() {
+      return $('#prototype-carousel').carousel(2);
+    });
+    return $('#nvc').on('click', function() {
+      return $('#prototype-carousel').carousel(3);
+    });
+  });
+
+  $(function() {
+    var fadeIn, fadeOut;
+    fadeIn = function(key) {
+      var element;
+      element = '#' + key;
+      $(element).find('.step-img').removeClass('hide-background').find('.top').fadeTo(400, 0);
+      $(element).find('h2').addClass('active');
+      $(element).find('p').addClass('active');
+    };
+    fadeOut = function(key) {
+      var element;
+      element = '#' + key;
+      $(element).find('h2').removeClass('active');
+      $(element).find('p').removeClass('active');
+      $(element).find('.top').fadeTo(300, 1, function() {
+        $(element).find('.step-img').addClass('hide-background');
+      });
+    };
+    $('#product-carousel').on('slide.bs.carousel', function(e) {
+      var newIndex, oldIndex;
+      oldIndex = $(this).find('.active').index();
+      newIndex = $(e.relatedTarget).index();
+      switch (oldIndex) {
+        case 0:
+          fadeOut('threads');
+          break;
+        case 1:
+          fadeOut('weaving');
+          break;
+        case 2:
+          fadeOut('braid');
+      }
+      switch (newIndex) {
+        case 0:
+          return fadeIn('threads');
+        case 1:
+          return fadeIn('weaving');
+        case 2:
+          return fadeIn('braid');
+      }
+    });
+  });
+
+  $(function() {
+    $('#prototype-carousel').on('slide.bs.carousel', function(e) {
+      var fadeInGroup, fadeOutGroup, newIndex, oldIndex;
+      oldIndex = $(this).find('.active').index();
+      newIndex = $(e.relatedTarget).index();
+      fadeInGroup = function(key) {
+        var element;
+        console.log(key, 'in');
+        element = '#' + key;
+        $(element).find('.group').addClass('active');
+        $(element).addClass('active');
+      };
+      fadeOutGroup = function(key) {
+        var element;
+        console.log(key, 'out');
+        element = '#' + key;
+        $(element).find('.group').removeClass('active');
+        $(element).removeClass('active');
+      };
+      switch (oldIndex) {
+        case 0:
+          fadeOutGroup('genzero');
+          break;
+        case 1:
+          fadeOutGroup('pathways');
+          break;
+        case 2:
+          fadeOutGroup('timebank');
+          break;
+        case 3:
+          fadeOutGroup('nvc');
+      }
+      switch (newIndex) {
+        case 0:
+          return fadeInGroup('genzero');
+        case 1:
+          return fadeInGroup('pathways');
+        case 2:
+          return fadeInGroup('timebank');
+        case 3:
+          return fadeInGroup('nvc');
+      }
+    });
+  });
+
+}).call(this);
+:ET

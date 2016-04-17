@@ -1,0 +1,9 @@
+I"¡(function() {
+  $(function() {
+    return $('#select-locale').on('change', function() {
+      return window.location = this.value;
+    });
+  });
+
+}).call(this);
+:ET

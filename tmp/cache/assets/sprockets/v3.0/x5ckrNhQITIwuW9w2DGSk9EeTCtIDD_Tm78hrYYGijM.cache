@@ -1,0 +1,11 @@
+I"å(function() {
+  $(function() {
+    return $('#vote-statement').bind('shown', (function(_this) {
+      return function(event) {
+        return $('#vote-statement .statement').focus();
+      };
+    })(this));
+  });
+
+}).call(this);
+:ET

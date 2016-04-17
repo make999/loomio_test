@@ -1,0 +1,39 @@
+I"ð(function() {
+  var toggle_email_new_disussions_and_proposals;
+
+  $(function() {
+    $('#upload-new-image').on('click', function() {
+      $("#user-avatar-kind").val("uploaded");
+      $('#uploaded-avatar').trigger('click');
+      return false;
+    });
+    return $('#uploaded-avatar').on('change', function() {
+      return $("#upload-form").submit();
+    });
+  });
+
+  $('.toggle-set-group-volume').on('click', function() {
+    return $('.set-group-volume').toggle();
+  });
+
+  toggle_email_new_disussions_and_proposals = function() {
+    if ($('#js_email_new_discussions_and_proposals').is(':checked')) {
+      $('.per-group-email-settings input').prop('disabled', false);
+      $('.per-group-email-settings input').removeClass('disabled');
+      return $('.per-group-email-settings').removeClass('disabled');
+    } else {
+      $('.per-group-email-settings input').prop('disabled', true);
+      $('.per-group-email-settings input').addClass('disabled');
+      return $('.per-group-email-settings').addClass('disabled');
+    }
+  };
+
+  $(function() {
+    toggle_email_new_disussions_and_proposals();
+    return $('#js_email_new_discussions_and_proposals').change(function() {
+      return toggle_email_new_disussions_and_proposals();
+    });
+  });
+
+}).call(this);
+:ET
